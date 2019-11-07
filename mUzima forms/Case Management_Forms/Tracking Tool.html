@@ -1,0 +1,931 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/muzima.css" rel="stylesheet">
+    <link href="css/ui-darkness/jquery-ui-1.10.4.custom.min.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/additional-methods.min.js"></script>
+    <script src="js/muzima.js"></script>
+    <title>CASE MANAGEMENT TRACKING TOOL</title>
+    <style>
+    .mytext {
+    width: 100px;
+}
+  
+label {
+   width: 300px;
+   display: inline-block;
+   text-align: left;
+}
+  </style>
+</head>
+
+<body class="col-md-8 col-md-offset-2">
+<div class="section form-group">
+
+     
+     
+    <div id="result"></div>
+    <form id="case_management_form" name="case_management_form"> <!-- previously id="hts_form" name="hts_form" -->
+        <font color="blue">
+            <h3 class="text-center">CASE MANAGEMENT TRACKING TOOL</h3></font>
+
+            
+            <div class="section"> 
+        <div class="form-group">
+            <label for="facility.name">Facility Name</label>
+            <input class="form-control" id="facility.name" name="facility_name" type="text" required="required" >
+        </div>
+        
+        <div class="form-group">
+            <label for="facility_code">MFL Code <span class="required">*</span> </label>
+            <input class="form-control" id="facility.code" name="facility_code" type="text" required="required">
+        </div>
+        
+        <div class="form-group ">
+            <label for="encounter.encounter_datetime ">Month/Year<span class="required ">*</span></label>
+            <input class="form-control nonFutureDate past-date datepicker" name="encounter.encounter_datetime " type="text " required="required ">
+        </div>
+</div>
+
+            <div class="section form-group">
+                <div class="form-group">
+                    <label for="cmanager"><b>Case Manager Name:</b><span class="required">*</span> </label>
+                    <input class="form-control" id="cmanager_name" name="cmanager_name" type="text" required="required">
+                </div>
+
+            <div class="form-group">
+                <h5><strong>Cases Currently in His/Her Care</strong><span class="required">*</span></h5>
+                
+                <div class="form-group">
+                    <label class="font-normal"> <input name="Psychosocial"
+                        id="newpmothers" type="checkbox"
+                        data-concept="8317^illness^99DCT" value="0000^stressors^99DCT" />
+                        New Positive Pregnant Mother
+                    </label>
+                </div>
+                
+            <div class="form-group" id="add1" style="display: none">
+            <div>
+                <label for="adherence_potential">Total under case management:</label>
+                    <input class="mytext" id="Text1" name="TextBox1" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                    </div><br/>
+                    <div>
+                <label for="adherence_potential">Suppressed:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                 </div><br/>
+                <div>
+                <label for="adherence_potential">Ready for Exit:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                </div><br/>
+                
+                
+                <div>
+                    <label for="cmanager">Comments:<span class="required">*</span> </label>
+                    <input class="form-control" id="cmanager_name" name="cmanager_name" type="text" required="required">
+                </div>
+            
+            </div>
+            
+            <div class="form-group" 
+                    <label class="font-normal"> <input name="Psychosocial"
+                        id="npbfm" type="checkbox"
+                        data-concept="8317^illness^99DCT" value="0000^stressors^99DCT" /> New Positive Breast Feeding Mother
+                    </label>
+                </div>
+                
+                <div class="form-group" id="add2" style="display: none">
+            <div>
+                <label for="adherence_potential">Total under case management:</label>
+                    <input class="mytext" id="Text1" name="TextBox1" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                    </div><br/>
+                    <div>
+                <label for="adherence_potential">Suppressed:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                 </div><br/>
+                <div>
+                <label for="adherence_potential">Ready for Exit:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                </div><br/>
+                
+                
+                <div>
+                    <label for="cmanager">Comments:<span class="required">*</span> </label>
+                    <input class="form-control" id="cmanager_name" name="cmanager_name" type="text" required="required">
+                </div>
+            
+            </div>
+                
+                <div class="form-group">
+                    <label class="font-normal"> <input name="Psychosocial"
+                        id="pa10-19" type="checkbox"
+                        data-concept="8317^illness^99DCT" value="0000^stressors^99DCT" />
+                        Pregnant Adolescent(10-19yrs)
+                    </label>
+                </div>
+                
+                <div class="form-group" id="add3" style="display: none">
+            <div>
+                <label for="adherence_potential">Total under case management:</label>
+                    <input class="mytext" id="Text1" name="TextBox1" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                    </div><br/>
+                    <div>
+                <label for="adherence_potential">Suppressed:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                 </div><br/>
+                <div>
+                <label for="adherence_potential">Ready for Exit:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                </div><br/>
+                
+                
+                <div>
+                    <label for="cmanager">Comments:<span class="required">*</span> </label>
+                    <input class="form-control" id="cmanager_name" name="cmanager_name" type="text" required="required">
+                </div>
+            
+            </div>
+                
+                <div class="form-group">
+                    <label class="font-normal"> <input name="Psychosocial"
+                        id="bfa10-19" type="checkbox"
+                        data-concept="8317^illness^99DCT" value="0000^stressors^99DCT" />
+                        Breast Feeding Adolescent(10-19yrs)
+                    </label>
+                </div>
+                
+                <div class="form-group" id="add4" style="display: none">
+            <div>
+                <label for="adherence_potential">Total under case management:</label>
+                    <input class="mytext" id="Text1" name="TextBox1" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                    </div><br/>
+                    <div>
+                <label for="adherence_potential">Suppressed:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                 </div><br/>
+                <div>
+                <label for="adherence_potential">Ready for Exit:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                </div><br/>
+                
+                
+                <div>
+                    <label for="cmanager">Comments:<span class="required">*</span> </label>
+                    <input class="form-control" id="cmanager_name" name="cmanager_name" type="text" required="required">
+                </div>
+            
+            </div>
+                
+                <div class="form-group">
+                    <label class="font-normal"> <input name="Psychosocial"
+                        id="hvb" type="checkbox"
+                        data-concept="8317^illness^99DCT" value="0000^stressors^99DCT" />
+                        High VL pregnant or Breast Feeding Mother
+                    </label>
+                </div>
+                
+                <div class="form-group" id="add5" style="display: none">
+            <div>
+                <label for="adherence_potential">Total under case management:</label>
+                    <input class="mytext" id="Text1" name="TextBox1" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                    </div><br/>
+                    <div>
+                <label for="adherence_potential">Suppressed:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                 </div><br/>
+                <div>
+                <label for="adherence_potential">Ready for Exit:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                </div><br/>
+                
+                
+                <div>
+                    <label for="cmanager">Comments:<span class="required">*</span> </label>
+                    <input class="form-control" id="cmanager_name" name="cmanager_name" type="text" required="required">
+                </div>
+            
+            </div>
+                
+                <div class="form-group">
+                    <label class="font-normal"> <input name="Psychosocial"
+                        id="hvp0-4" type="checkbox"
+                        data-concept="8317^illness^99DCT" value="0000^stressors^99DCT" />
+                        High VL Peadiatric (0-4yrs) Female
+                    </label>
+                </div>
+                
+                
+                <div class="form-group" id="add6" style="display: none">
+            <div>
+                <label for="adherence_potential">Total under case management:</label>
+                    <input class="mytext" id="Text1" name="TextBox1" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                    </div><br/>
+                    <div>
+                <label for="adherence_potential">Suppressed:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                 </div><br/>
+                <div>
+                <label for="adherence_potential">Ready for Exit:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                </div><br/>
+                
+                
+                <div>
+                    <label for="cmanager">Comments:<span class="required">*</span> </label>
+                    <input class="form-control" id="cmanager_name" name="cmanager_name" type="text" required="required">
+                </div>
+            
+            </div>
+                
+                <div class="form-group">
+                    <label class="font-normal"> <input name="Psychosocial"
+                        id="hvp5-9" type="checkbox"
+                        data-concept="8317^illness^99DCT" value="0000^stressors^99DCT" />
+                        High VL Peadiatric (5-9yrs) Female
+                    </label>
+                </div>
+                
+                <div class="form-group" id="add7" style="display: none">
+            <div>
+                <label for="adherence_potential">Total under case management:</label>
+                    <input class="mytext" id="Text1" name="TextBox1" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                    </div><br/>
+                    <div>
+                <label for="adherence_potential">Suppressed:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                 </div><br/>
+                <div>
+                <label for="adherence_potential">Ready for Exit:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                </div><br/>
+                
+                
+                <div>
+                    <label for="cmanager">Comments:<span class="required">*</span> </label>
+                    <input class="form-control" id="cmanager_name" name="cmanager_name" type="text" required="required">
+                </div>
+            
+            </div>
+                
+                <div class="form-group">
+                    <label class="font-normal"> <input name="Psychosocial"
+                        id="hvp0-4m" type="checkbox"
+                        data-concept="8317^illness^99DCT" value="0000^stressors^99DCT" />
+                        High VL Peadiatric (0-4yrs) Male
+                    </label>
+                </div>
+                
+                <div class="form-group" id="add8" style="display: none">
+            <div>
+                <label for="adherence_potential">Total under case management:</label>
+                    <input class="mytext" id="Text1" name="TextBox1" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                    </div><br/>
+                    <div>
+                <label for="adherence_potential">Suppressed:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                 </div><br/>
+                <div>
+                <label for="adherence_potential">Ready for Exit:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                </div><br/>
+                
+                
+                <div>
+                    <label for="cmanager">Comments:<span class="required">*</span> </label>
+                    <input class="form-control" id="cmanager_name" name="cmanager_name" type="text" required="required">
+                </div>
+            
+            </div>
+                
+                <div class="form-group">
+                    <label class="font-normal"> <input name="Psychosocial"
+                        id="hvp5-9m" type="checkbox"
+                        data-concept="8317^illness^99DCT" value="0000^stressors^99DCT" />
+                        High VL Peadiatric (5-9yrs) Male
+                    </label>
+                </div>
+                
+                
+                <div class="form-group" id="add9" style="display: none">
+            <div>
+                <label for="adherence_potential">Total under case management:</label>
+                    <input class="mytext" id="Text1" name="TextBox1" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                    </div><br/>
+                    <div>
+                <label for="adherence_potential">Suppressed:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                 </div><br/>
+                <div>
+                <label for="adherence_potential">Ready for Exit:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                </div><br/>
+                
+                
+                <div>
+                    <label for="cmanager">Comments:<span class="required">*</span> </label>
+                    <input class="form-control" id="cmanager_name" name="cmanager_name" type="text" required="required">
+                </div>
+            
+            </div>
+                
+                <div class="form-group">
+                    <label class="font-normal"> <input name="Psychosocial"
+                        id="hva10-14f" type="checkbox"
+                        data-concept="8317^illness^99DCT" value="0000^stressors^99DCT" />
+                        High VL Adolescent (10-14yrs) Female
+                    </label>
+                </div>
+                
+                <div class="form-group" id="add10" style="display: none">
+            <div>
+                <label for="adherence_potential">Total under case management:</label>
+                    <input class="mytext" id="Text1" name="TextBox1" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                    </div><br/>
+                    <div>
+                <label for="adherence_potential">Suppressed:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                 </div><br/>
+                <div>
+                <label for="adherence_potential">Ready for Exit:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                </div><br/>
+                
+                
+                <div>
+                    <label for="cmanager">Comments:<span class="required">*</span> </label>
+                    <input class="form-control" id="cmanager_name" name="cmanager_name" type="text" required="required">
+                </div>
+            
+            </div>
+                
+                <div class="form-group">
+                    <label class="font-normal"> <input name="Psychosocial"
+                        id="hva15-19f" type="checkbox"
+                        data-concept="8317^illness^99DCT" value="0000^stressors^99DCT" />
+                        High VL Adolescent (15-19yrs) Female
+                    </label>
+                    </div>
+                <div class="form-group" id="add11" style="display: none">
+            <div>
+                <label for="adherence_potential">Total under case management:</label>
+                    <input class="mytext" id="Text1" name="TextBox1" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                    </div><br/>
+                    <div>
+                <label for="adherence_potential">Suppressed:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                 </div><br/>
+                <div>
+                <label for="adherence_potential">Ready for Exit:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                </div><br/>
+                
+                
+                <div>
+                    <label for="cmanager">Comments:<span class="required">*</span> </label>
+                    <input class="form-control" id="cmanager_name" name="cmanager_name" type="text" required="required">
+                </div>
+            
+            </div>
+                
+                
+                 <div class="form-group">
+                    <label class="font-normal"> <input name="Psychosocial"
+                        id="hva10-14m" type="checkbox"
+                        data-concept="8317^illness^99DCT" value="0000^stressors^99DCT" />
+                        High VL Adolescent (10-14yrs) Male
+                    </label>
+                </div>
+                
+                <div class="form-group" id="add12" style="display: none">
+            <div>
+                <label for="adherence_potential">Total under case management:</label>
+                    <input class="mytext" id="Text1" name="TextBox1" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                    </div><br/>
+                    <div>
+                <label for="adherence_potential">Suppressed:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                 </div><br/>
+                <div>
+                <label for="adherence_potential">Ready for Exit:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                </div><br/>
+                
+                
+                <div>
+                    <label for="cmanager">Comments:<span class="required">*</span> </label>
+                    <input class="form-control" id="cmanager_name" name="cmanager_name" type="text" required="required">
+                </div>
+            
+            </div>
+                
+                 <div class="form-group">
+                    <label class="font-normal"> <input name="Psychosocial"
+                        id="hva15-19m" type="checkbox"
+                        data-concept="8317^illness^99DCT" value="0000^stressors^99DCT" />
+                        High VL Adolescent (15-19yrs) Male
+                    </label>
+                </div>
+                
+                
+                <div class="form-group" id="add13" style="display: none">
+            <div>
+                <label for="adherence_potential">Total under case management:</label>
+                    <input class="mytext" id="Text1" name="TextBox1" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                    </div><br/>
+                    <div>
+                <label for="adherence_potential">Suppressed:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                 </div><br/>
+                <div>
+                <label for="adherence_potential">Ready for Exit:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                </div><br/>
+                
+                
+                <div>
+                    <label for="cmanager">Comments:<span class="required">*</span> </label>
+                    <input class="form-control" id="cmanager_name" name="cmanager_name" type="text" required="required">
+                </div>
+            
+            </div>
+                
+                 <div class="form-group">
+                    <label class="font-normal"> <input name="Psychosocial"
+                        id="hvy20-24f" type="checkbox"
+                        data-concept="8317^illness^99DCT" value="0000^stressors^99DCT" />
+                        High VL Youths (20-24yrs) Female
+                    </label>
+                </div>
+                
+                
+                <div class="form-group" id="add14" style="display: none">
+            <div>
+                <label for="adherence_potential">Total under case management:</label>
+                    <input class="mytext" id="Text1" name="TextBox1" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                    </div><br/>
+                    <div>
+                <label for="adherence_potential">Suppressed:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                 </div><br/>
+                <div>
+                <label for="adherence_potential">Ready for Exit:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                </div><br/>
+                
+                
+                <div>
+                    <label for="cmanager">Comments:<span class="required">*</span> </label>
+                    <input class="form-control" id="cmanager_name" name="cmanager_name" type="text" required="required">
+                </div>
+            
+            </div>
+                
+                
+                 <div class="form-group">
+                    <label class="font-normal"> <input name="Psychosocial"
+                        id="hvy20-24m" type="checkbox"
+                        data-concept="8317^illness^99DCT" value="0000^stressors^99DCT" />
+                        High VL Youths (20-24yrs) Male
+                    </label>
+                </div>
+                
+                
+                <div class="form-group" id="add15" style="display: none">
+            <div>
+                <label for="adherence_potential">Total under case management:</label>
+                    <input class="mytext" id="Text1" name="TextBox1" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                    </div><br/>
+                    <div>
+                <label for="adherence_potential">Suppressed:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                 </div><br/>
+                <div>
+                <label for="adherence_potential">Ready for Exit:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                </div><br/>
+                
+                
+                <div>
+                    <label for="cmanager">Comments:<span class="required">*</span> </label>
+                    <input class="form-control" id="cmanager_name" name="cmanager_name" type="text" required="required">
+                </div>
+            
+            </div>
+                
+                <div class="form-group">
+                    <label class="font-normal"> <input name="Psychosocial"
+                        id="hva25f" type="checkbox"
+                        data-concept="8317^illness^99DCT" value="0000^stressors^99DCT" />
+                        High VL Adults (25yrs and above) Female
+                    </label>
+                </div>
+                
+                
+                <div class="form-group" id="add16" style="display: none">
+            <div>
+                <label for="adherence_potential">Total under case management:</label>
+                    <input class="mytext" id="Text1" name="TextBox1" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                    </div><br/>
+                    <div>
+                <label for="adherence_potential">Suppressed:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                 </div><br/>
+                <div>
+                <label for="adherence_potential">Ready for Exit:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                </div><br/>
+                
+                
+                <div>
+                    <label for="cmanager">Comments:<span class="required">*</span> </label>
+                    <input class="form-control" id="cmanager_name" name="cmanager_name" type="text" required="required">
+                </div>
+            
+            </div>
+                
+                <div class="form-group">
+                    <label class="font-normal"> <input name="Psychosocial"
+                        id="hva25m" type="checkbox"
+                        data-concept="8317^illness^99DCT" value="0000^stressors^99DCT" />
+                        High VL Adults (25yrs and above) Male
+                    </label>
+                </div>
+                
+                
+                <div class="form-group" id="add17" style="display: none">
+            <div>
+                <label for="adherence_potential">Total under case management:</label>
+                    <input class="mytext" id="Text1" name="TextBox1" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                    </div><br/>
+                    <div>
+                <label for="adherence_potential">Suppressed:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                 </div><br/>
+                <div>
+                <label for="adherence_potential">Ready for Exit:</label>
+                    <input class="mytext" id="Text2" name="TextBox2" type="number" pattern="[0-9]" min="0" oninput="validity.valid||(value='');">
+                </div><br/>
+                
+                <div>
+                    <label for="cmanager">Comments:<span class="required">*</span> </label>
+                    <input class="form-control" id="cmanager_name" name="cmanager_name" type="text" required="required">
+                </div>
+                
+                
+                <div>
+                
+            
+                
+            </div>
+        </div>
+            
+              </div>  
+
+    </form>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js "></script>
+ 
+<script>
+
+//Other immunizations received
+        /*<script type="text/javascript">*/
+         $(function () {
+         $("#newpmothers").click(function () {
+            if ($(this).is(":checked")) {
+                $("#add1").show();
+            } else {
+                $("#add1").hide();
+            }
+        });
+    });
+
+
+       $(function () {
+         $("#npbfm").click(function () {
+            if ($(this).is(":checked")) {
+                $("#add2").show();
+            } else {
+                $("#add2").hide();
+            }
+        });
+    });
+     
+     $(function () {
+         $("#pa10-19").click(function () {
+            if ($(this).is(":checked")) {
+                $("#add3").show();
+            } else {
+                $("#add3").hide();
+            }
+        });
+    });
+    
+    $(function () {
+         $("#bfa10-19").click(function () {
+            if ($(this).is(":checked")) {
+                $("#add4").show();
+            } else {
+                $("#add4").hide();
+            }
+        });
+    });
+    
+    $(function () {
+         $("#hvb").click(function () {
+            if ($(this).is(":checked")) {
+                $("#add5").show();
+            } else {
+                $("#add5").hide();
+            }
+        });
+    });
+    
+    $(function () {
+         $("#hvp0-4").click(function () {
+            if ($(this).is(":checked")) {
+                $("#add6").show();
+            } else {
+                $("#add6").hide();
+            }
+        });
+    });
+    
+    
+    $(function () {
+         $("#hvp5-9").click(function () {
+            if ($(this).is(":checked")) {
+                $("#add7").show();
+            } else {
+                $("#add7").hide();
+            }
+        });
+    });
+    
+    
+    $(function () {
+         $("#hvp0-4m").click(function () {
+            if ($(this).is(":checked")) {
+                $("#add8").show();
+            } else {
+                $("#add8").hide();
+            }
+        });
+    });
+    
+    
+    $(function () {
+         $("#hvp5-9m").click(function () {
+            if ($(this).is(":checked")) {
+                $("#add9").show();
+            } else {
+                $("#add9").hide();
+            }
+        });
+    });
+    
+    
+    $(function () {
+         $("#hva10-14f").click(function () {
+            if ($(this).is(":checked")) {
+                $("#add10").show();
+            } else {
+                $("#add10").hide();
+            }
+        });
+    });
+    
+    
+    $(function () {
+         $("#hva15-19f").click(function () {
+            if ($(this).is(":checked")) {
+                $("#add11").show();
+            } else {
+                $("#add11").hide();
+            }
+        });
+    });
+    
+    
+    $(function () {
+         $("#hva10-14m").click(function () {
+            if ($(this).is(":checked")) {
+                $("#add12").show();
+            } else {
+                $("#add12").hide();
+            }
+        });
+    });
+    
+    
+    $(function () {
+         $("#hva15-19m").click(function () {
+            if ($(this).is(":checked")) {
+                $("#add13").show();
+            } else {
+                $("#add13").hide();
+            }
+        });
+    });
+    
+    
+    $(function () {
+         $("#hvy20-24f").click(function () {
+            if ($(this).is(":checked")) {
+                $("#add14").show();
+            } else {
+                $("#add14").hide();
+            }
+        });
+    });
+    
+    
+    
+    $(function () {
+         $("#hvy20-24m").click(function () {
+            if ($(this).is(":checked")) {
+                $("#add15").show();
+            } else {
+                $("#add15").hide();
+            }
+        });
+    });
+    
+    $(function () {
+         $("#hva25f").click(function () {
+            if ($(this).is(":checked")) {
+                $("#add16").show();
+            } else {
+                $("#add16").hide();
+            }
+        });
+    });
+    
+    
+    $(function () {
+         $("#hva25m").click(function () {
+            if ($(this).is(":checked")) {
+                $("#add17").show();
+            } else {
+                $("#add17").hide();
+            }
+        });
+    });
+    
+    
+    
+    $(function () {
+         $("#bfa10-19").click(function () {
+            if ($(this).is(":checked")) {
+                $("#add4").show();
+            } else {
+                $("#add4").hide();
+            }
+        });
+    });
+    
+    
+    $(function () {
+         $("#bfa10-19").click(function () {
+            if ($(this).is(":checked")) {
+                $("#add4").show();
+            } else {
+                $("#add4").hide();
+            }
+        });
+    });
+    
+    
+    $(function () {
+         $("#bfa10-19").click(function () {
+            if ($(this).is(":checked")) {
+                $("#add4").show();
+            } else {
+                $("#add4").hide();
+            }
+        });
+    });
+
+// we used jQuery 'keyup' to trigger the computation as the user type
+$('.mytext').keyup(function () {
+    var sum = 0;
+    $('.mytext').each(function() {
+        sum += Number($(this).val());
+    });
+    $('#total').val(sum);
+     
+});
+
+$('.mytext2').keyup(function () {
+    var sum = 0;
+    $('.mytext2').each(function() {
+        sum += Number($(this).val());
+    });
+    $('#total2').val(sum);
+     
+});
+
+$('.mytext3').keyup(function () {
+    var sum = 0;
+    $('.mytext3').each(function() {
+        sum += Number($(this).val());
+    });
+    $('#total3').val(sum);
+     
+});
+
+$('.mytext4').keyup(function () {
+    var sum = 0;
+    $('.mytext4').each(function() {
+        sum += Number($(this).val());
+    });
+    $('#total4').val(sum);
+     
+});
+
+$('.total').keyup(function () {
+    var sum = 0;
+    $('.total').each(function() {
+        sum += Number($(this).val());
+    });
+    $('#totalall').val(sum);
+     
+});
+
+</script>
+
+<script type="text/javascript">
+ $(document).ready(function() {
+ // Set Encounter DateTime for date of screening
+    var dateFormat = "dd-mm-yy ";
+    var currentDate = $.datepicker.formatDate(dateFormat, new Date());
+    var encounterDatetime = $('#encounter\\.encounter_datetime');
+    if ($(encounterDatetime).val() == " ") {
+        $(encounterDatetime).val(currentDate);
+    }
+
+    var currentYear = new Date().getFullYear();
+    var birthdate_start_year = currentYear - 140;
+    $('.birth_date_picker').datepicker({
+        dateFormat: dateFormat,
+        changeMonth: true,
+        changeYear: true,
+        yearRange: birthdate_start_year + ':' + currentYear,
+    });
+// type of patient_case_management
+    $('#patient_type_specify').hide()
+    $('#patient_case_management').click(function() {
+    console.log("THE SELECTED  "+$(this).val())
+    if($(this).val() == "0000^YES^99DCT"){
+    $('#patient_type_specify').show()
+    console.log("THE SELECTED show")
+    } else{
+    console.log("THE SELECTED hide")
+    $('#patient_type_specify').hide()
+    }
+    
+    
+    });
+
+
+
+    $.fn.calculateFields = function() {
+        var tempAgeInYears = $.trim($("#tmp\\.age_in_years").val());
+        if (tempAgeInYears != '') {
+            $('#patient\\.birthdate_estimated').val('true');           
+            $('#patient\\.birth_date').val($.fn.getTempBirthDate(tempAgeInYears));
+        }
+        return true;
+    };
+    $.fn.customValidationCheck = function() {
+        return $.fn.calculateFields();
+    };
+    $.validator.addMethod(
+        "validateConfirmIdentifierElement",
+        function(confirm_other_identifier_value, confirm_identifier_element) {
+            var other_identifier_value = $(confirm_identifier_element).closest('.repeat').find('.check-other-identifier').val();
+            if (other_identifier_value == confirm_other_identifier_value) {
+                return true;
+            } else {
+                return false;
+            }
+            
+        },
+        "Other Identifiers do not match."
+    );
+    jQuery.validator.addClassRules({
+        'check-confirm-identifier': {
+            validateConfirmIdentifierElement: true
+        }
+    });
+
+
+});
+</script>
+
+</html>
+

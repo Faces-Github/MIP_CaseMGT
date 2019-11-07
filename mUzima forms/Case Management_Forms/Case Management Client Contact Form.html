@@ -1,0 +1,364 @@
+<html>
+
+<head>
+     <script src="http://demo.expertphp.in/js/jquery.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/muzima.css" rel="stylesheet">
+    <link href="css/ui-darkness/jquery-ui-1.10.4.custom.min.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/additional-methods.min.js"></script>
+    <script src="js/muzima.js"></script>
+    <title>CASE MANAGEMENT CLIENT CONTACT FORM</title>
+    <style>
+    h4 {
+        text-align: center;
+    }
+    </style>
+</head>
+
+<body class="col-md-8 col-md-offset-2">
+    <div id="result"></div>
+    <form id="case_management_form" name="case_management_form"> 
+        <font color="blue">
+            <h3 class="text-center">CASE MANAGEMENT CLIENT CONTACT FORM</h3></font>
+
+          <!-- Start Names -->
+        <div class="section">
+            <h4>DEMOGRAPHICS</h4>
+            <div class="form-group">
+                <input class="form-control" id="patient.uuid" name="patient.uuid" type="hidden" readonly="readonly"/>
+            </div>
+            <div class="form-group">
+                <label for="patient.family_name">Family Name <span class="required">*</span> </label>
+                <input class="form-control" id="patient.family_name" name="patient.family_name" type="text" required="required" readonly="readonly" />
+            </div>
+            <div class="form-group">
+                <label for="patient.given_name">Given Name <span class="required">*</span></label>
+                <input class="form-control" id="patient.given_name" name="patient.given_name" type="text" required="required" readonly="readonly"/>
+            </div>
+            <div class="form-group">
+                <label for="patient.middle_name">Middle Name </label>
+                <input class="form-control" id="patient.middle_name" name="patient.middle_name" type="text" readonly="readonly"/>
+            </div>
+            <div class="form-group">
+                <label for="patient.mothers_name">Mother's Name </label>
+                <input class="form-control" id="patient.mothers_name" name="patient.mothers_name" type="text" readonly="readonly"/>
+            </div>
+            <div class="form-group">
+                <label for="patient.sex">Sex <span class="required">*</span></label>
+                <select class="form-control" id="patient.sex" name="patient.sex" required="required" readonly="readonly">
+                    <option value="">...</option>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="tmp.birthdate_type">Record Date of Birth By... <span class="required">*</span></label>
+                <select class="form-control" name="tmp.birthdate_type" id="tmp.birthdate_type" required="required" readonly="readonly">
+                    <option value="">...</option>
+                    <option value="birthdate">Birth-date</option>
+                    <option value="age">Age</option>
+                </select>
+            </div>
+            <div class="form-group show_birthdate">
+                <label for="patient.birth_date">Select Birthdate <span class="required">*</span></label>
+                <input class="form-control birth_date_picker nonFutureDate past-date" id="patient.birth_date" name="patient.birth_date" type="text" required="required" readonly="readonly"/>
+            </div>
+            <div class="form-group show_birthdate">
+                <label for="patient.birthdate_estimated">Is this birthdate an estimate? <span class="required">*</span></label>
+                <select class="form-control" id="patient.birthdate_estimated" name="patient.birthdate_estimated" required="required" readonly="readonly">
+                    <option>...</option>
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </select>
+            </div>
+            <div class="form-group show_age">
+                <label for="tmp.age_in_years">How old are you in Years <span class="required">*</span></label>
+                <input class="form-control" id="tmp.age_in_years" name="tmp.age_in_years" type="number" required="required" readonly="readonly"/>
+            </div>
+        </div>
+        <!-- End Names -->
+
+            <div class="section form-group">
+                <div class="form-group">
+                    <label> Type of review<span class="required">*</span>
+                    </label>
+                <fieldset name="8367^REVIEW TYPE^99DCT">
+                     <div class="form-group">
+                        <label class="font-normal"> <input class="review_type"
+                            name="review_type" id="phone_review" type="radio"
+                            data-concept="8367^REVIEW TYPE^99DCT" value="8365^Phone^99DCT">
+                            Phone review
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-normal"> <input class="review_type"
+                            name="review_type" id="physical_review" type="radio"
+                            data-concept="8367^REVIEW TYPE^99DCT" value="8366^Physical^99DCT">
+                            Physical review
+                        </label>
+                    </div>
+                </fieldset>
+                </div>
+             </div>
+
+             <div class="section form-group">
+                <div class="form-group">
+                  <h5><strong>Type of patient on case management</strong><span class="required">*</span></h5>
+                  <fieldset name="8347^cmanagement?^99DCT">
+                   <select name="patient_type" id="patient_case_management">
+                      <option value="8314^NPPM^99DCT">New Positive Pregnant Mother</option>
+                      <option value="8316^NPBFM^99DCT">New Positive Breast Feeding Mother</option>
+                      <option value="8317^PBFA^99DCT">Pregnant Adolescent(10-19yrs)</option>
+                      <option value="8319^PBFA^99DCT">Breast Feeding Adolescent(10-19yrs)</option>
+                      <option value="8320^HVLPBFM^99DCT">High VL pregnant or Breast Feeding Mother</option>
+                      <option value="8323^HVLPF^99DCT">High VL Peadiatric (0-4yrs) Female</option>
+                      <option value="8325^HVLPF^99DCT">High VL Peadiatric (5-9yrs) Female</option>
+                      <option value="8328^HVLPM^99DCT">High VL Peadiatric (0-4yrs) Male</option>
+                      <option value="8331^HVLPM^99DCT">High VL Peadiatric (5-9yrs) Male</option>
+                      <option value="8334^HVLAF^99DCT">High VL Adolescent (10-14yrs) Female</option>
+                      <option value="8338^HVLAF^99DCT">High VL Adolescent (15-19yrs) Female</option>
+                      <option value="8339^HVLAM^99DCT">High VL Adolescent (10-14yrs) Male</option>
+                      <option value="8336^HVLAM^99DCT">High VL Adolescent (15-19yrs) Male</option>
+                      <option value="8341^HVLYF^99DCT">High VL Youths (20-24yrs) Female</option>
+                      <option value="8342^HVLYM^99DCT">High VL Youths (20-24yrs) Male</option>
+                      <option value="8343^HVLADF^99DCT">High VL Adults (25yrs and above) Female</option>
+                      <option value="8344^HVLADM^99DCT">High VL Adults (25yrs and above) Male</option>
+                      <option value="7918^YES^99DCT" id="other_specify_type">Other Specify</option>
+                   </select>
+                </fieldset>
+                </div>
+                <div id="patient_type_specify">
+                  <label for="review_findings">Specify</label>
+                  <input class="form-control" name="specify_specify" type="textfield">
+              </div>
+          </div>
+ 
+ <div class="form-group">           
+<script src="http://demo.expertphp.in/js/jquery.js"></script>
+
+         <div class="section form-group input_fields_container">
+         <label> Key Findings<span class="required">*</span>
+                    </label>
+                <div><input  id="findings" name="key_findings" type="text" size="30" data-concept="8368^KEYFINDINGS^99DCT">
+                <button class="btn btn-sm btn-primary add_more_button">+</button>
+                </div>
+         </div>
+         
+</div>        
+        
+<script>    
+    $(document).ready(function() {
+    var max_fields_limit      = 10; //maximum input boxes allowed
+    var x = 1; //initlal text box count
+    $('.add_more_button').click(function(e){ //on add input button click
+        e.preventDefault();
+        if(x < max_fields_limit){ //max input box allowed
+            x++; //text box increment
+            $('.input_fields_container').append('<div><input type="text" size="30" name="key_findings[]"/><a href="#" class="remove_field" style="margin-left:10px;">remove</a></div>'); //add input box
+        }
+    });
+    
+    $('.input_fields_container').on("click",".remove_field", function(e){ //user click on remove text
+        e.preventDefault(); $(this).parent('div').remove(); x--;
+    })
+});
+</script>
+
+
+
+
+             <div class="section form-group input_fields_container1">
+         <label> Followup Plan<span class="required">*</span>
+                    </label>
+                <div><input  id="followup" name="followup_plan" type="text" size="30" data-concept="8369^FUPLAN^99DCT">
+                <button class="btn btn-sm btn-primary add_more_button1">+</button>
+                </div>
+         </div>
+         
+</div>        
+        
+<script>    
+    $(document).ready(function() {
+    var max_fields_limit      = 10; //maximum input boxes allowed
+    var x = 1; //initlal text box count
+    $('.add_more_button1').click(function(e){ //on add input button click
+        e.preventDefault();
+        if(x < max_fields_limit){ //max input box allowed
+            x++; //text box increment
+            $('.input_fields_container1').append('<div><input type="text" size="30" name="followup_plan[]"/><a href="#" class="remove_field" style="margin-left:10px;">remove</a></div>'); //add input box
+        }
+    });
+    
+    $('.input_fields_container1').on("click",".remove_field", function(e){ //user click on remove text
+        e.preventDefault(); $(this).parent('div').remove(); x--;
+    })
+});
+</script>
+
+            <div class="section form-group">
+                <div class="form-group ">
+                        <label for="encounter.encounter_datetime ">Next scheduled encouter Date:<span class="required ">*</span></label>
+                        <input class="form-control nonpast-date datepicker" name="tca_datetime " type="text " data-concept="1938^CMANAGER^99DCT" required="required ">
+                </div>
+            </div>
+            
+            <div class="section form-group">
+                <div class="form-group">
+                    <label for="cmanager">Name of case manager<span class="required">*</span> </label>
+                    <input class="form-control" id="cmanager_name" name="cmanager_name" type="text" data-concept="8364^CMANAGER^99DCT" required="required">
+                </div>
+            </div>
+			
+			 <!-- End Next of Kin Details -->
+        <div class="section">
+            <div class="form-group">
+                <label for="encounter.location_id">Encounter Location <span class="required">*</span></label>
+                <input class="form-control valid-location-only" id="encounter.location_id" type="text"
+                    placeholder="Start typing something..." required="required" />
+                <input class="form-control" name="encounter.location_id" type="hidden" />
+            </div>
+            <div class="form-group hidden">
+                <label for="encounter.location_id_select">Encounter Location <span class="required">*</span></label>
+                <select class="form-control" id="encounter.location_id_select" required="required">
+                    <option>...</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="encounter.provider_id_select">Provider Name <span class="required">*</span></label>
+                <input class="form-control valid-provider-only" id="encounter.provider_id_select" type="text"
+                    placeholder="Start typing something..." required="required" />
+                <input class="form-control" name="encounter.provider_id_select" type="hidden" />
+            </div>
+            <div class="form-group hidden">
+                <select id="select_providers">
+                </select>
+            </div>
+            <div class="form-group show_provider_id_text">
+                <label for="encounter.provider_id">Provider's System-Id <span class="required">*</span></label>
+                <input class="form-control checkDigit" id="encounter.provider_id" name="encounter.provider_id"
+                    type="text" readonly="readonly" required="required" />
+            </div>
+            <div class="form-group">
+                <label for="encounter.encounter_datetime">Encounter DateTime <span class="required">*</span></label>
+                <input class="form-control nonFutureDate past-date datepicker" readonly="readonly"
+                    id="encounter.encounter_datetime" name="encounter.encounter_datetime" type="text"
+                    required="required" />
+            </div>
+            <div class="form-group">
+                <input class="form-control" id="encounter.form_uuid" name="encounter.form_uuid" type="hidden"
+                    required="required" />
+            </div>
+        </div>
+
+    </form>
+</body>
+
+<script type="text/javascript">
+
+ $('#save_draft').click(function () {
+            // pre process the medications
+            $(this).prop('disabled', true);
+            document.saveDraft(this);
+            $(this).prop('disabled', false);
+        });
+        $('#submit_form').click(function () {
+            // pre process the medications
+            $(this).prop('disabled', true);
+            document.submit();
+            $(this).prop('disabled', false);
+        });
+
+ $(document).ready(function() {
+ // Set Encounter DateTime for date of screening
+    var dateFormat = "dd-mm-yy ";
+    var currentDate = $.datepicker.formatDate(dateFormat, new Date());
+    var encounterDatetime = $('#encounter\\.encounter_datetime');
+    if ($(encounterDatetime).val() == " ") {
+        $(encounterDatetime).val(currentDate);
+    }
+
+    var currentYear = new Date().getFullYear();
+    var birthdate_start_year = currentYear - 140;
+    $('.birth_date_picker').datepicker({
+        dateFormat: dateFormat,
+        changeMonth: true,
+        changeYear: true,
+        yearRange: birthdate_start_year + ':' + currentYear,
+    });
+    // type of patient_case_management
+    $('#patient_type_specify').hide()
+    $('#patient_case_management').click(function() {
+    console.log("THE SELECTED  "+$(this).val())
+    if($(this).val() == "0000^YES^99DCT"){
+    $('#patient_type_specify').show()
+    console.log("THE SELECTED show")
+    } else{
+    console.log("THE SELECTED hide")
+    $('#patient_type_specify').hide()
+    }
+    
+    
+    });
+    
+    // observation add
+        
+    
+    $('.input_fields_container').on("click",".remove_field", function(e){ //user click on remove text
+        e.preventDefault(); $(this).parent('div').remove(); x--;
+    })
+});
+    
+    $('.input_fields_container').on("click",".remove_field", function(e){ //user click on remove text
+        e.preventDefault(); $(this).parent('div').remove(); x--;
+});
+    // NOT KNOWN POSITIVE
+    $("input[id = 'other_specify_type']:select ")
+            .change(function() {
+            console.log("SELECTED HERE,,,,,")
+                $('#yes_known_positive_client').hide();
+                $('#not_known_new_positive_client').show();
+            });
+            
+            $('#other_specify_type').change(function(){
+  var data= $(this).val();
+  alert(data);            
+});
+
+
+    $.fn.calculateFields = function() {
+        var tempAgeInYears = $.trim($("#tmp\\.age_in_years").val());
+        if (tempAgeInYears != '') {
+            $('#patient\\.birthdate_estimated').val('true');           
+            $('#patient\\.birth_date').val($.fn.getTempBirthDate(tempAgeInYears));
+        }
+        return true;
+    };
+    $.fn.customValidationCheck = function() {
+        return $.fn.calculateFields();
+    };
+    $.validator.addMethod(
+        "validateConfirmIdentifierElement",
+        function(confirm_other_identifier_value, confirm_identifier_element) {
+            var other_identifier_value = $(confirm_identifier_element).closest('.repeat').find('.check-other-identifier').val();
+            if (other_identifier_value == confirm_other_identifier_value) {
+                return true;
+            } else {
+                return false;
+            }
+        },
+        "Other Identifiers do not match."
+    );
+    jQuery.validator.addClassRules({
+        'check-confirm-identifier': {
+            validateConfirmIdentifierElement: true
+        }
+    });
+
+
+</script>
+
+</html>

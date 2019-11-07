@@ -1,0 +1,324 @@
+<!--
+  ~ The contents of this file are subject to the OpenMRS Public License
+  ~ Version 1.0 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://license.openmrs.org
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or impliediaxd. See the
+  ~ License for the specific language governing rights and limitations
+  ~ under the License.
+  ~
+  ~ Copyright (C) OpenMRS, LLC.  All Rights Reserved.
+-->                      
+<htmlform>
+ <style type="text/css">
+        table.icfpead  {
+        border-collapse: collapse;
+        //background-color: #dddddd;
+        }
+        table.icfpead  > tbody > tr > td, table.icfpead   > tbody > tr > th {
+        border: 1px solid black;
+        vertical-align: baseline;
+        padding: 4px;
+        text-align: left;
+        }
+ </style>
+
+<script type="text/javascript">
+// Define Concept constants
+		
+		var OTHER = 7918;
+		
+
+function onEntrypoint()
+{
+
+    if (getValue('entry_point.value')== OTHER)
+    {
+        if ($j('#specify_other').is(':visible'))//check if the object is visible
+        {
+           
+        }
+        $j('#specify_other').hide();
+        
+$j(function(){
+  $j('#entry_point input').click(onEntrypoint);  
+});
+
+
+beforeSubmit.push(function() {
+var age=<lookup expression="patient.age"/>;
+//window.alert(age.toString());
+var agecategory=14;
+if(age &gt; agecategory) {
+window.alert('This is not a Child');
+return false;
+}
+return true;
+});
+
+function validateEncounterDate(){
+var today=new Date().getTime();
+var enc_date=new Date(getValue('encounter_date.value')).getTime();
+if (enc_date &gt; today){
+getField('encounter_date.error').html('cannnot be a future date').show();
+}
+else 
+{
+getField('encounter_date.error').hide();
+}
+}
+$j(function(){ 
+getField('encounter_date.value').change(validateEncounterDate);
+validateEncounterDate();
+});
+
+function validateActionDate(){
+var today=new Date().getTime();
+var action_date=new Date(getValue('action_date.value')).getTime();
+var birthdate=new Date("<lookup expression="patient.birthdate"/>").getTime ();
+if (action_date &gt; today){
+getField('action_date.error').html('cannnot be a future date').show();
+}
+else if (action_date &lt; birthdate){
+getField('action_date.error').html('cannot be less than the date of birth').show();
+}
+else 
+{
+getField('action_date.error').hide();
+}
+}
+
+$j(function(){ 
+getField('action_date.value').change(validateActionDate);
+validateActionDate();
+
+});
+
+</script>
+   
+<table border="2" width="70%" align="center" class="icfpead">
+			<tr>                                                                                                                                  
+                                <td style="background-color: #696969; color: #ffffff;" colspan="3" width="70%">MIP mother follow-up</td>
+                                <td></td>   
+                                
+			</tr>
+
+
+                        
+<tr>
+              <td colspan="3">Visit Type </td>
+              <td colspan="1"> <obs conceptId="1501" answerConceptIds="1493,1494" answerLabels="Scheduled, Unscheduled" answerSeparator="&lt;br/&gt;" style="radio"/></td>
+  </tr>
+
+<tr>
+              <td colspan="3">Patient Type </td>
+              <td colspan="1"> <obs conceptId="8403" answerConceptIds="8402,6368" answerLabels="Postnatal, Pregnant" answerSeparator="&lt;br/&gt;" style="radio"/></td>
+  </tr>
+
+<tr>
+              
+              <td colspan="3">Gestational Age In Weeks</td> 
+              <td colspan="1"> <obs conceptId="1850" labelText=""  /> </td>
+</tr>
+
+  
+
+<tr>
+              <td colspan="3">Breast Feeding</td>
+              <td colspan="1"> <obs conceptId="7130" answerConceptIds="1065,1066" answerLabels="Y-Yes, N-No" answerSeparator="&lt;br/&gt;" style="radio"/></td>
+  </tr>
+
+<tr>
+              <td colspan="3">Mother started on Family Planning(Exclude Condoms)</td>
+              <td colspan="1"> <obs conceptId="8388" answerConceptIds="1065,1066" answerLabels="Y-Yes, N-No" answerSeparator="&lt;br/&gt;" style="radio"/></td>
+  </tr>
+
+<tr>
+              
+              <td colspan="3">why not using Family planning methods</td> 
+              <td colspan="1"> <obs id="completionStatus_specify" conceptId="1937" /> </td>
+</tr>
+
+  <tr>
+              <td colspan="3">Family Planning methods used</td>
+              <td colspan="1"><obs conceptId="374"    answerConceptIds="6495,5275,1713,1714,5276,5622" answerLabels="Pills,IUD,Depo,Implant,TL,Other" answerSeparator="&lt;br/&gt;" style="radio"/><br/>
+
+<span id="specify_other"  ><obs conceptId="374" answerConceptIds="7918"  style="textarea" /></span>
+          </td>
+  </tr> 
+
+  
+
+   
+
+  <tr>
+              <td colspan="3">Mothers adherence </td>
+              <td colspan="1"> <obs conceptId="8393" answerConceptIds="1384,1385,1386" answerLabels="Good, Fair,Poor" answerSeparator="&lt;br/&gt;" style="radio"/></td>
+  </tr> 
+
+            <tr>
+               <td colspan="3">Enhanced adherence done </td>
+               <td colspan="1"><obs conceptId="8395" answerConceptIds="1065,1066" answerLabels="Y-Yes,N-No" style="radio"/></td> 
+   </tr>
+
+<tr>
+              
+              <td colspan="3">why not </td> 
+              <td colspan="1"> <obs id="completionStatus_specify" conceptId="1937" /> </td>
+</tr>
+
+  <tr>
+              <td colspan="3">Has the mother disclosed her HIV status? </td>
+              <td colspan="1"> <obs conceptId="6835" answerConceptIds="1065,1066" answerLabels="Y-Yes, N-No" answerSeparator="&lt;br/&gt;" style="radio"/></td>
+  </tr>
+
+               <tr>
+		<td class="header" colspan="3">To whom has the client disclosed her HIV status?</td>
+				
+				             <td colspan="1">
+						<obs conceptId="8309"  answerConceptId="5617" answerLabel="Husband/Spouse" style="checkbox"/><br/>
+						<obs conceptId="8309"  answerConceptId="972" answerLabel="Sibling" style="checkbox"/><br/>
+						<obs conceptId="8309"  answerConceptId="6591" answerLabel="Parent" style="checkbox"/><br/>
+						<obs conceptId="8309"  answerConceptId="7918" answerLabel="9-Other" style="checkbox"/> <br/>
+                                                <span id="specify_other"  ><obs conceptId="8309" answerConceptIds="8077"  style="textarea" /></span> 
+	  </td>
+          </tr> 
+
+<tr>
+              <td colspan="3">Did Partner accompany the woman to the clinic</td>
+              <td colspan="1"> <obs conceptId="8307" answerConceptIds="1065,1066" answerLabels="Y-Yes, N-No" answerSeparator="&lt;br/&gt;" style="radio"/></td>
+  </tr>
+
+<tr>
+              
+              <td colspan="3">Reason for decline to accompany partner</td> 
+              <td colspan="1"> <obs id="completionStatus_specify" conceptId="1937" /> </td>
+</tr>
+
+<tr>
+              <td colspan="3">Partner Tested</td>
+              <td colspan="1"> <obs conceptId="1363" answerConceptIds="1065,1066" answerLabels="Y-Yes, N-No" answerSeparator="&lt;br/&gt;" style="radio"/></td>
+  </tr>
+
+<tr>
+              
+              <td colspan="3">Reason for decline</td> 
+              <td colspan="1"> <obs id="completionStatus_specify" conceptId="1937" /> </td>
+</tr>
+
+<tr>
+              <td colspan="3">Partner HIV_Test  result</td>
+              <td colspan="1"><obs conceptId="6831" answerConceptIds="703,664" answerLabels="pos - Positive,neg - Negative" answerSeparator="&lt;br/&gt;" style="radio"/></td>
+  </tr>
+
+<tr>
+              
+              <td colspan="3">CCC Number </td> 
+              <td colspan="1"> <obs conceptId="6831" answerConceptId="8374" answerLabel="CCC Number:" /><obs conceptId="8374" /> </td>
+</tr>
+
+<tr>
+              <td colspan="3">Partner Started on Prep</td>
+              <td colspan="1"> <obs conceptId="8308" answerConceptIds="1065,1066" answerLabels="Y-Yes, N-No" answerSeparator="&lt;br/&gt;" style="radio"/></td>
+  </tr>
+
+<tr>
+              <td colspan="3">Mother offered self test kits for partner<br/> How many Test Kits issued</td>
+              <td colspan="1"> <obs conceptId="8460" answerConceptIds="1065,1066" answerLabels="Y-Yes, N-No" answerSeparator="&lt;br/&gt;" style="radio"/><br/>
+               <obs conceptId="8464" labelText=""  />
+                 
+                        </td>
+  </tr>
+
+
+
+<tr>
+              <td colspan="3">Syphillis Positive treated</td>
+              <td colspan="1"> <obs conceptId="8399" answerConceptIds="1065,1066" answerLabels="Y-Yes, N-No" answerSeparator="&lt;br/&gt;" style="radio"/></td>
+  </tr>
+
+
+
+<tr>
+	<td colspan="3">Dates of syphilis treatment:</td><td colspan="1"><obs conceptId="7183" labelText=""  /><br/><obs conceptId="7183" labelText=""  /><br/><obs conceptId="7183" labelText=""  /></td>
+</tr>
+
+<tr>
+              
+              <td colspan="3">Month of Post ART initiatiaon</td> 
+              <td colspan="1"> <obs id="completionStatus_specify" conceptId="1937" /> </td>
+</tr>
+
+<tr>
+              <td colspan="3">Post ART initiation</td>
+              <td colspan="1"> <obs conceptId="8400" answerConceptIds="1065,1066" answerLabels="Y-Yes, N-No" answerSeparator="&lt;br/&gt;" style="radio"/></td>
+  </tr>
+
+<tr>
+	<td colspan="3">Date Viral load collected:</td><td colspan="1"><obs conceptId="7183" labelText=""  /></td>
+</tr>
+
+<tr>
+              
+              <td colspan="3">Viral load Results</td> 
+              <td colspan="1"> <obs conceptId="846" /> </td>
+</tr>
+
+<tr>
+              <td colspan="3">Assigned case manager</td>
+              <td colspan="1"> <obs conceptId="8401" answerConceptIds="1065,1066" answerLabels="Y-Yes, N-No" answerSeparator="&lt;br/&gt;" style="radio"/></td>
+  </tr>
+<tr>
+              
+              <td colspan="3">Name of case Manager</td> 
+              <td colspan="1"> <obs conceptId="8456" labelText="" /></td>
+</tr>
+
+<tr>
+	<td colspan="3">Date Home visit done:</td><td colspan="1"><obs conceptId="6400" labelText=""  /></td>
+</tr>
+
+<tr>
+	<td colspan="3">Date MDT I done:</td><td colspan="1"><obs conceptId="8405" labelText=""  /></td>
+</tr>
+
+<tr>
+	<td colspan="3">Date Repeat VL done:</td><td colspan="1"><obs conceptId="8404" labelText=""  /></td>
+</tr>
+
+<tr>
+              
+              <td colspan="3">Results of repeat VL after 3 months</td> 
+              <td colspan="1"> <obs  conceptId="8465" /> </td>
+</tr>
+
+<tr>
+	<td colspan="3">Date of ART switch:</td><td colspan="1"><obs conceptId="6751" labelText=""  /></td>
+</tr>
+<tr><td colspan="4"><table width="100%"> 
+    <tr>
+     <td>
+        <center>Page 1 of 1</center>
+</td>
+   <td align="right">
+     MIP MOTHER FOLLOW-UP 
+   
+   </td>
+<td>
+<center>5/5/2019</center> 
+ </td>
+</tr>
+              <tr>
+                       <td style="text-align:center;" colspan="4">
+                    <div class="ke-form-buttons">
+                        <submit />
+                    </div>
+                </td>
+            </tr>
+</table></td></tr>
+                         
+
+</table>
+</htmlform>

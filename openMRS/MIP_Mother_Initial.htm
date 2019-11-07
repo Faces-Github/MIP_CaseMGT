@@ -1,0 +1,296 @@
+<!--
+  ~ The contents of this file are subject to the OpenMRS Public License
+  ~ Version 1.0 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://license.openmrs.org
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or impliediaxd. See the
+  ~ License for the specific language governing rights and limitations
+  ~ under the License.
+  ~
+  ~ Copyright (C) OpenMRS, LLC.  All Rights Reserved.
+-->                      
+<htmlform>
+ <style type="text/css">
+        table.icfpead  {
+        border-collapse: collapse;
+        //background-color: #dddddd;
+        }
+        table.icfpead  > tbody > tr > td, table.icfpead   > tbody > tr > th {
+        border: 1px solid black;
+        vertical-align: baseline;
+        padding: 4px;
+        text-align: left;
+        }
+ </style>
+
+<script type="text/javascript">
+// Define Concept constants
+		
+		var OTHER = 7918;
+		
+
+function onEntrypoint()
+{
+
+    if (getValue('entry_point.value')== OTHER)
+    {
+        if ($j('#specify_other').is(':visible'))//check if the object is visible
+        {
+           
+        }
+        $j('#specify_other').hide();
+        
+$j(function(){
+  $j('#entry_point input').click(onEntrypoint);  
+});
+
+
+beforeSubmit.push(function() {
+var age=<lookup expression="patient.age"/>;
+//window.alert(age.toString());
+var agecategory=14;
+if(age &gt; agecategory) {
+window.alert('This is not a Child');
+return false;
+}
+return true;
+});
+
+function validateEncounterDate(){
+var today=new Date().getTime();
+var enc_date=new Date(getValue('encounter_date.value')).getTime();
+if (enc_date &gt; today){
+getField('encounter_date.error').html('cannnot be a future date').show();
+}
+else 
+{
+getField('encounter_date.error').hide();
+}
+}
+$j(function(){ 
+getField('encounter_date.value').change(validateEncounterDate);
+validateEncounterDate();
+});
+
+function validateActionDate(){
+var today=new Date().getTime();
+var action_date=new Date(getValue('action_date.value')).getTime();
+var birthdate=new Date("<lookup expression="patient.birthdate"/>").getTime ();
+if (action_date &gt; today){
+getField('action_date.error').html('cannnot be a future date').show();
+}
+else if (action_date &lt; birthdate){
+getField('action_date.error').html('cannot be less than the date of birth').show();
+}
+else 
+{
+getField('action_date.error').hide();
+}
+}
+
+$j(function(){ 
+getField('action_date.value').change(validateActionDate);
+validateActionDate();
+
+});
+
+</script>
+   
+<table border="2" width="70%" align="center" class="icfpead">
+			<tr>                                                                                                                                  
+                                <td style="background-color: #696969; color: #ffffff;" colspan="3" width="70%"> MIP mother initial form</td>
+                                <td></td>        
+			</tr>
+  <tr>
+              <td colspan="3">Marital Status</td>
+              <td colspan="1"><obs conceptId="1054" answerConceptIds="6163,6162,1510,1058,1059,1056" answerLabels="Married Polygamous,Married Monogamous,Single,Divorced,Widowed,Separated" answerSeparator="&lt;br/&gt;" style="radio"/></td>
+  </tr> 
+
+  <tr>
+              <td colspan="3">Level of Education</td>
+              <td colspan="1"><obs conceptId="1368" answerConceptIds="1371,6330,1369,1107" answerLabels="College, University or Polythechnic,Secondary School Education,Primary School,None" answerSeparator="&lt;br/&gt;" style="radio"/></td>
+  </tr>
+
+  <tr>
+              <td colspan="3">Entry point</td>
+              <td colspan="1"><obs conceptId="8274"  id="entry_point"  answerConceptIds="1795,8266,8188,8227,8170,6860,7918" answerLabels="ANC,Maternity,PNC,OPD,IPD,CCC,Other" answerSeparator="&lt;br/&gt;" style="radio"/><br/>
+
+<span id="specify_other"  ><obs conceptId="8071" answerConceptIds="8077"  style="textarea" /></span>
+          </td>
+  </tr> 
+
+  
+
+  <tr>
+              <td colspan="3">Consent provided for home visits and to receive calls or SMS reminders</td>
+              <td colspan="1"> <obs conceptId="7130" answerConceptIds="1065,1066" answerLabels="Y-Yes, N-No" answerSeparator="&lt;br/&gt;" style="radio"/></td>
+  </tr> 
+
+  <tr>
+              <td colspan="3">Client Type </td>
+              <td colspan="1"> <obs conceptId="8273" answerConceptIds="7509,8412" answerLabels="Known Postive, New Postive" answerSeparator="&lt;br/&gt;" style="radio"/></td>
+  </tr> 
+
+            <tr>
+               <td colspan="3">Pregnancy intended </td>
+               <td colspan="1"><obs conceptId="8306" answerConceptIds="1065,1066" answerLabels="Y-Yes,N-No" style="radio"/></td> 
+   </tr>
+
+  <tr>
+              <td colspan="3">Did Partner accompany the woman to the clinic</td>
+              <td colspan="1"> <obs conceptId="8307" answerConceptIds="1065,1066" answerLabels="Y-Yes, N-No" answerSeparator="&lt;br/&gt;" style="radio"/></td>
+  </tr> 
+
+<tr>
+              <td colspan="3">Partner Tested</td>
+              <td colspan="1"> <obs conceptId="1363" answerConceptIds="1065,1066" answerLabels="Y-Yes, N-No" answerSeparator="&lt;br/&gt;" style="radio"/></td>
+  </tr>
+
+<tr>
+              <td colspan="3">Partner result</td>
+              <td colspan="1"><obs conceptId="6831" answerConceptIds="703,664,1118,1175" answerLabels="pos - Positive,neg - Negative,ND - Not Done,N/A - Not Applicable" 
+
+answerSeparator="&lt;br/&gt;" style="radio"/>  <obs conceptId="6831" answerConceptId="8374" answerLabel="CCC Number:" /><obs conceptId="8374" /></td>
+  </tr>
+
+
+<tr>
+              <td colspan="3">Partner Started on Prep</td>
+              <td colspan="1"> <obs conceptId="8308" answerConceptIds="1065,1066" answerLabels="Y-Yes, N-No" answerSeparator="&lt;br/&gt;" style="radio"/></td>
+  </tr>
+
+<tr>
+              <td colspan="3">Mother offered self test kits for partner<br/> How many Test Kits issued</td>
+              <td colspan="1"> <obs conceptId="8460" answerConceptIds="1065,1066" answerLabels="Y-Yes, N-No" answerSeparator="&lt;br/&gt;" style="radio"/><br/>
+               <obs conceptId="8464" labelText=""  />
+                 
+                        </td>
+  </tr>
+
+<tr>
+              <td colspan="3">Has the mother disclosed her HIV status? </td>
+              <td colspan="1"> <obs conceptId="8397" answerConceptIds="1065,1066" answerLabels="Y-Yes, N-No" answerSeparator="&lt;br/&gt;" style="radio"/></td>
+  </tr>
+
+               <tr>
+		<td class="header" colspan="3">To whom has the client disclosed her HIV status?</td>
+				
+				             <td colspan="1">
+						<obs conceptId="8309"  answerConceptId="5617" answerLabel="Husband/Spouse" style="checkbox"/><br/>
+						<obs conceptId="8309"  answerConceptId="972" answerLabel="Sibling" style="checkbox"/><br/>
+						<obs conceptId="8309"  answerConceptId="6591" answerLabel="Parent" style="checkbox"/><br/>
+						<obs conceptId="8309"  answerConceptId="7918" answerLabel="9-Other" style="checkbox"/> <br/>
+                                                <span id="specify_other"  ><obs conceptId="8071" answerConceptIds="8077"  style="textarea" /></span> 
+	  </td>
+          </tr>
+
+<tr>
+              <td colspan="3">Tested for syphilis</td>
+              <td colspan="1"> <obs conceptId="8458" answerConceptIds="1065,1066" answerLabels="Y-Yes, N-No" answerSeparator="&lt;br/&gt;" style="radio"/></td>
+  </tr>
+
+<tr>
+              <td colspan="3">Syphilis test results</td>
+              <td colspan="1"> <obs conceptId="8461" answerConceptIds="703,664" answerLabels="Postive, Negative" answerSeparator="&lt;br/&gt;" style="radio"/></td>
+  </tr>
+
+<tr>
+              <td colspan="3">Syphillis treated</td>
+              <td colspan="1"> <obs conceptId="8399" answerConceptIds="1065,1066" answerLabels="Y-Yes, N-No" answerSeparator="&lt;br/&gt;" style="radio"/></td>
+  </tr>
+<tr>
+	<td colspan="3">First Syphillis treatment Date:</td><td colspan="1"><obs conceptId="8466" labelText=""  /></td>
+</tr>
+<tr>
+	<td colspan="3">Second Syphillis treatment Date:</td><td colspan="1"><obs conceptId="8467" labelText=""  /></td>
+</tr>
+<tr>
+	<td colspan="3">Third Syphillis treatment Date:</td><td colspan="1"><obs conceptId="8468" labelText=""  /></td>
+</tr>
+<tr>
+	<td colspan="3">Date ART initiated:</td><td colspan="1"><obs conceptId="8375" labelText=""  /></td>
+</tr>
+<tr>
+	<td colspan="3">Initial Regimen:</td><td colspan="1"><obs conceptId="7047" labelText=""  /></td>
+</tr>
+
+<tr>
+	<td colspan="3">Current ART Regimen:</td><td colspan="1"><obs conceptId="7047" labelText=""  /></td>
+</tr>
+
+<tr>
+	<td colspan="3">If different from initial, date of Regimen switch/change:</td><td colspan="1"><obs conceptId="6751" labelText=""  /></td>
+</tr>
+
+<tr>
+	<td colspan="3">Date of the First VL done in this pregnancy:</td><td colspan="1"><obs conceptId="8459" labelText=""  /></td>
+</tr>
+
+<tr>
+	<td colspan="3">Date ART switched/changed:</td><td colspan="1"><obs conceptId="6751" labelText=""  /></td>
+</tr>
+
+<tr>
+              <td colspan="3">Consent given for Text IT enrollment?</td>
+              <td colspan="1"> <obs conceptId="8408" answerConceptIds="1065,1066" answerLabels="Y-Yes, N-No" answerSeparator="&lt;br/&gt;" style="radio"/></td>
+  </tr>
+
+
+             <tr>
+		<td class="header" colspan="3">Language preffered to receive SMS</td>
+				
+				         <td colspan="1">
+						 <obs conceptId="1775"  answerConceptId="7504" answerLabel="English" style="checkbox"/><br/>
+						<obs conceptId="1775"  answerConceptId="7505" answerLabel="Luo" style="checkbox"/><br/>
+						<obs conceptId="1775"  answerConceptId="5281" answerLabel="Swahili" style="checkbox"/><br/>
+						  
+	            </td>
+                  </tr>
+
+<tr>
+              <td colspan="3">Is the woman pregnant?</td>
+              <td colspan="1"> <obs conceptId="1836" answerConceptIds="1065,1066" answerLabels="Y-Yes, N-No" answerSeparator="&lt;br/&gt;" style="radio"/></td>
+  </tr>
+
+<tr>
+              <td colspan="3">Is the woman breastfeeding?</td>
+              <td colspan="1"> <obs conceptId="7130" answerConceptIds="1065,1066" answerLabels="Y-Yes, N-No" answerSeparator="&lt;br/&gt;" style="radio"/></td>
+  </tr>
+
+<tr>
+              <td colspan="3">Has the Mother been Transitioned to Receive Postnatal messages?</td>
+              <td colspan="1"> <obs conceptId="8457" answerConceptIds="1065,1066" answerLabels="Y-Yes, N-No" answerSeparator="&lt;br/&gt;" style="radio"/></td>
+  </tr>
+
+
+ <tr>
+				<td colspan="4">Form completed by:<encounterProvider type="autocomplete"/></td>
+			    </tr>
+
+<tr><td colspan="4"><table width="100%"> 
+    <tr>
+     <td>
+        <center>Page 1 of 1</center>
+</td>
+   <td align="right">
+     MIP MOTHER INITIAL 
+   
+   </td>
+<td>
+<center>5/5/2019</center> 
+ </td>
+</tr>
+              <tr>
+                       <td style="text-align:center;" colspan="4">
+                    <div class="ke-form-buttons">
+                        <submit />
+                    </div>
+                </td>
+            </tr>
+</table></td></tr>
+                         
+
+</table>
+</htmlform>
