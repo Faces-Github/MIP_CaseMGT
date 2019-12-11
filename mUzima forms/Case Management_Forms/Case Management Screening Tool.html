@@ -1,792 +1,503 @@
 <html>
 
-        <head>
-                <meta name="viewport" content="width=device-width, initial-scale=1">
-                <link href="css/bootstrap.min.css" rel="stylesheet">
-                <link href="css/muzima.css" rel="stylesheet">
-                <link href="css/ui-darkness/jquery-ui-1.10.4.custom.min.css" rel="stylesheet">
-                <script src="js/jquery.min.js"></script>
-                <script src="js/jquery-ui-1.10.4.custom.min.js"></script>
-                <script src="js/jquery.validate.min.js"></script>
-                <script src="js/additional-methods.min.js"></script>
-                <script src="js/muzima.js"></script>
-                <title>CASE MANAGEMENT SCREENING TOOL</title>
-                <style>
-                h4 {
-                    text-align: center;
-                }
-                </style>
-            
-            
-            
-            </head>
-            
-            <body class="col-md-8 col-md-offset-2">
-                <div id="result"></div>
-                <form id="case_management_form" name="case_management_form">
-                    <font color="blue">
-                        <h3 class="text-center">CASE MANAGEMENT SCREENING TOOL</h3></font>
-                        
-                       <!-- Start Names -->
-                    <div class="section">
-                        <h4>DEMOGRAPHICS</h4>
-                        <div class="form-group">
-                            <input class="form-control" id="patient.uuid" name="patient.uuid" type="hidden" readonly="readonly"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="patient.family_name">Family Name <span class="required">*</span> </label>
-                            <input class="form-control" id="patient.family_name" name="patient.family_name" type="text" required="required" readonly="readonly" />
-                        </div>
-                        <div class="form-group">
-                            <label for="patient.given_name">Given Name <span class="required">*</span></label>
-                            <input class="form-control" id="patient.given_name" name="patient.given_name" type="text" required="required" readonly="readonly"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="patient.middle_name">Middle Name </label>
-                            <input class="form-control" id="patient.middle_name" name="patient.middle_name" type="text" readonly="readonly"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="patient.mothers_name">Mother's Name </label>
-                            <input class="form-control" id="patient.mothers_name" name="patient.mothers_name" type="text" readonly="readonly"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="patient.sex">Sex <span class="required">*</span></label>
-                            <select class="form-control" id="patient.sex" name="patient.sex" required="required" readonly="readonly">
-                                <option value="">...</option>
-                                <option value="M">Male</option>
-                                <option value="F">Female</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="tmp.birthdate_type">Record Date of Birth By... <span class="required">*</span></label>
-                            <select class="form-control" name="tmp.birthdate_type" id="tmp.birthdate_type" required="required" readonly="readonly">
-                                <option value="">...</option>
-                                <option value="birthdate">Birth-date</option>
-                                <option value="age">Age</option>
-                            </select>
-                        </div>
-                        <div class="form-group show_birthdate">
-                            <label for="patient.birth_date">Select Birthdate <span class="required">*</span></label>
-                            <input class="form-control birth_date_picker nonFutureDate past-date" id="patient.birth_date" name="patient.birth_date" type="text" required="required" readonly="readonly"/>
-                        </div>
-                        <div class="form-group show_birthdate">
-                            <label for="patient.birthdate_estimated">Is this birthdate an estimate? <span class="required">*</span></label>
-                            <select class="form-control" id="patient.birthdate_estimated" name="patient.birthdate_estimated" required="required" readonly="readonly">
-                                <option>...</option>
-                                <option value="true">Yes</option>
-                                <option value="false">No</option>
-                            </select>
-                        </div>
-                        <div class="form-group show_age">
-                            <label for="tmp.age_in_years">How old are you in Years <span class="required">*</span></label>
-                            <input class="form-control" id="tmp.age_in_years" name="tmp.age_in_years" type="number" required="required" readonly="readonly"/>
-                        </div>
-                    </div>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/muzima.css" rel="stylesheet">
+    <link href="css/ui-darkness/jquery-ui-1.10.4.custom.min.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/additional-methods.min.js"></script>
+    <script src="js/muzima.js"></script>
+    <title>CASE MANAGEMENT SCREENING TOOL</title>
+    <style>
+        h4 {
+            text-align: center;
+        }
+    </style>
+
+
+
+</head>
+
+<body class="col-md-8 col-md-offset-2">
+    <div id="result"></div>
+    <form id="case_management_form" name="case_management_form">
+        <font color="blue">
+            <h3 class="text-center">CASE MANAGEMENT SCREENING TOOL</h3>
+        </font>
+
+        <!-- Start Names -->
+        <div class="section">
+            <h4>DEMOGRAPHICS</h4>
+            <div class="form-group">
+                <input class="form-control" id="patient.uuid" name="patient.uuid" type="hidden" readonly="readonly" />
+            </div>
+            <div class="form-group">
+                <label for="patient.family_name">Family Name <span class="required">*</span> </label>
+                <input class="form-control" id="patient.family_name" name="patient.family_name" type="text"
+                    required="required" readonly="readonly" />
+            </div>
+            <div class="form-group">
+                <label for="patient.given_name">Given Name <span class="required">*</span></label>
+                <input class="form-control" id="patient.given_name" name="patient.given_name" type="text"
+                    required="required" readonly="readonly" />
+            </div>
+            <div class="form-group">
+                <label for="patient.middle_name">Middle Name </label>
+                <input class="form-control" id="patient.middle_name" name="patient.middle_name" type="text"
+                    readonly="readonly" />
+            </div>
+            <div class="form-group">
+                <label for="patient.mothers_name">Mother's Name </label>
+                <input class="form-control" id="patient.mothers_name" name="patient.mothers_name" type="text"
+                    readonly="readonly" />
+            </div>
+            <div class="form-group">
+                <label for="patient.sex">Sex <span class="required">*</span></label>
+                <select class="form-control" id="patient.sex" name="patient.sex" required="required"
+                    readonly="readonly">
+                    <option value="">...</option>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="tmp.birthdate_type">Record Date of Birth By... <span class="required">*</span></label>
+                <select class="form-control" name="tmp.birthdate_type" id="tmp.birthdate_type" required="required"
+                    readonly="readonly">
+                    <option value="">...</option>
+                    <option value="birthdate">Birth-date</option>
+                    <option value="age">Age</option>
+                </select>
+            </div>
+            <div class="form-group show_birthdate">
+                <label for="patient.birth_date">Select Birthdate <span class="required">*</span></label>
+                <input class="form-control birth_date_picker nonFutureDate past-date" id="patient.birth_date"
+                    name="patient.birth_date" type="text" required="required" readonly="readonly" />
+            </div>
+            <div class="form-group show_birthdate">
+                <label for="patient.birthdate_estimated">Is this birthdate an estimate? <span
+                        class="required">*</span></label>
+                <select class="form-control" id="patient.birthdate_estimated" name="patient.birthdate_estimated"
+                    required="required" readonly="readonly">
+                    <option>...</option>
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </select>
+            </div>
+            <div class="form-group show_age">
+                <label for="tmp.age_in_years">How old are you in Years <span class="required">*</span></label>
+                <input class="form-control" id="tmp.age_in_years" name="tmp.age_in_years" type="number"
+                    required="required" readonly="readonly" />
+            </div>
+        </div>
         <!-- End Names -->
 
         <div class="section form-group">
             <div class="form-group">
-              <h5><strong>Type of patient on case management</strong><span class="required">*</span></h5>
-              <fieldset name="8347^cmanagement?^99DCT">
-               <select name="patient_type" id="patient_case_management">
-                  <option value="8314^NPPM^99DCT">New Positive Pregnant Mother</option>
-                  <option value="8316^NPBFM^99DCT">New Positive Breast Feeding Mother</option>
-                  <option value="8317^PBFA^99DCT">Pregnant Adolescent(10-19yrs)</option>
-                  <option value="8319^PBFA^99DCT">Breast Feeding Adolescent(10-19yrs)</option>
-                  <option value="8320^HVLPBFM^99DCT">High VL pregnant or Breast Feeding Mother</option>
-                  <option value="8323^HVLPF^99DCT">High VL Peadiatric (0-4yrs) Female</option>
-                  <option value="8325^HVLPF^99DCT">High VL Peadiatric (5-9yrs) Female</option>
-                  <option value="8328^HVLPM^99DCT">High VL Peadiatric (0-4yrs) Male</option>
-                  <option value="8331^HVLPM^99DCT">High VL Peadiatric (5-9yrs) Male</option>
-                  <option value="8334^HVLAF^99DCT">High VL Adolescent (10-14yrs) Female</option>
-                  <option value="8338^HVLAF^99DCT">High VL Adolescent (15-19yrs) Female</option>
-                  <option value="8339^HVLAM^99DCT">High VL Adolescent (10-14yrs) Male</option>
-                  <option value="8336^HVLAM^99DCT">High VL Adolescent (15-19yrs) Male</option>
-                  <option value="8341^HVLYF^99DCT">High VL Youths (20-24yrs) Female</option>
-                  <option value="8342^HVLYM^99DCT">High VL Youths (20-24yrs) Male</option>
-                  <option value="8343^HVLADF^99DCT">High VL Adults (25yrs and above) Female</option>
-                  <option value="8344^HVLADM^99DCT">High VL Adults (25yrs and above) Male</option>
-                  <option value="7918^YES^99DCT" id="other_specify_type">Other Specify</option>
-               </select>
-            </fieldset>
+                <h5><strong>Type of patient on case management</strong><span class="required">*</span></h5>
+                <fieldset name="8347^cmanagement?^99DCT">
+                    <select name="patient_type" id="patient_case_management">
+                        <option value="8314^NPPM^99DCT">New Positive Pregnant Mother</option>
+                        <option value="8316^NPBFM^99DCT">New Positive Breast Feeding Mother</option>
+                        <option value="8317^PBFA^99DCT">Pregnant Adolescent</option>
+                        <option value="8319^PBFA^99DCT">Breast Feeding Adolescent</option>
+                        <option value="8320^HVLPBFM^99DCT">High VL pregnant or Breast Feeding Mother</option>
+                        <option value="8323^HVLPF^99DCT">High VL Peadiatric </option>
+                        <option value="8343^HVLADF^99DCT">High VL Adults </option>
+                        <option value="7918^YES^99DCT" id="other_specify_type">Other Specify</option>
+                    </select>
+                </fieldset>
             </div>
             <div id="patient_type_specify">
-              <label for="review_findings">Specify</label>
-              <input class="form-control" name="specify_specify" type="textfield">
-          </div>
-      </div>
-              
-              
-              <div class="section form-group">
-                  <div class="form-group">
-                      <h5><strong>Socioeconomic</strong><span class="required">*</span></h5>
-                      <label> Financially capable (Able to meet basic needs; Food, Shelter, Clothing) <span class="required">*</span>
-                      </label>
-                  <fieldset name="8345^FINANCE^99DCT">
-                       <div class="form-group">
-                          <label class="font-normal"> <input class="financial_capability"
-                              name="financial_capability" id="financial_yes" type="radio"
-                              data-concept="8345^FINANACE^99DCT" value="1065^Yes^99DCT">
-                              Yes
-                          </label>
-                      </div>
-                      <div class="form-group">
-                          <label class="font-normal"> <input class="financial_capability"
-                              name="financial_capability" id="financial_no" type="radio"
-                              data-concept="8345^FINANACE^99DCT" value="1066^No^99DCT">
-                              No
-                          </label>
-                      </div>
-                  </fieldset>
-                  <div class="form-group" id="comment1" style="display: none">
-                          <label for="comment1"> <span
-                              class="required">Comment</span>
-                          </label> <input class="form-control" id="comment1"
-                              name="comment1" type="text" data-concept="7047^comment^99DCT" required="required">
-                      </div> 
-                  
-                  </div>
-              
-                  <div class="form-group">
-                      <label> Facing financial challenges <span class="required">*</span>
-                      </label>
-                  <fieldset name="8346^FINANCIAL^99DCT">
-                       <div class="form-group">
-                          <label class="font-normal"> <input class="financial_challenges"
-                              name="financial_challenges" id="fchallenge_yes" type="radio"
-                              data-concept="8346^FINANACIAL^99DCT" value="1065^Yes^99DCT">
-                              Yes
-                          </label>
-                      </div>
-                      <div class="form-group">
-                          <label class="font-normal"> <input class="financial_capability"
-                              name="financial_challenges" id="fchallenge_no" type="radio"
-                              data-concept="8346^FINANACIAL^99DCT" value="1066^No^99DCT">
-                              No
-                          </label>
-                      </div>
-                  </fieldset>
-                  
-                  <div class="form-group" id="comment2" style="display: none">
-                          <label for="comment2"> <span
-                              class="required">Comment</span>
-                          </label> <input class="form-control" id="comment2"
-                              name="comment2" type="text"data-concept="7047^comment^99DCT"  required="required">
-                      </div> 
-                  
-                  </div>
-               </div>
-  
-              <div class="section form-group">
-                  <div class="form-group">
-                      <label>Educational level <span class="required">*</span></label>
-                          <div class="form-group">
-                      <label class="font-normal"> <input name="education"
-                          id="college" type="radio"
-                          data-concept="1368^HIGHEST EDUCATION LEVEL^99DCT"
-                          value="1371^SOME COLLEGE/UNIVERSITY^99DCT">
-                          Graduate and above
-                      </label>
-                  </div>
-                  <div class="form-group">
-                      <label class="font-normal"> <input name="education"
-                          id="secondary" type="radio"
-                          data-concept="1368^HIGHEST EDUCATION LEVEL^99DCT"
-                          value="6330^SECONDARY COMPLETED^99DCT"> Secondary School
-                      </label>
-                  </div>
-                  <div class="form-group">
-                      <label class="font-normal"> <input name="education"
-                          id="primary" type="radio"
-                          data-concept="1368^HIGHEST EDUCATION LEVEL^99DCT"
-                          value="6329^PRIMARY COMPLETED^99DCT"> Primary School
-                      </label>
-                  </div>
-                  <div class="form-group">
-                      <label class="font-normal"> <input name="education"
-                          id="no_education" type="radio"
-                          data-concept="1368^HIGHEST EDUCATION LEVEL^99DCT"
-                          value="1107^NONE^99DCT"> None
-                      </label>
-                  </div>
-              </div>
-          </div>
-  
-          <div class="section">
-          <div class="form-group">
-              <h5><strong>Cognitive Functioning</strong><span class="required">*</span></h5>
-              <fieldset name="8351^COGNITIVE FUNCTION^99DCT">
-                  <div class="form-group">
-                      <label class="font-normal">
-                          <input class="impairment" name="status" id="nocog_function" type="radio"
-                                 data-concept="8351^COGNITIVE FUNCTIONING^99DCT"
-                                 value="8348^CF^99DCT">
-                          No impairment
-                      </label>
-                  </div>
-                  <div class="form-group">
-                      <label class="font-normal">
-                          <input class="impairment" name="status" id="mincog_function" type="radio"
-                                 data-concept="8351^COGNITIVE FUNCTIONING^99DCT"
-                                 value="8349^CF^99DCT">
-                          Minimal to Moderate impairment
-                      </label>
-                  </div>
-                  <div class="form-group">
-                      <label class="font-normal">
-                          <input class="impairment" name="status" id="svcog_function" type="radio"
-                                 data-concept="8351^COGNITIVE FUNCTIONING^99DCT"
-                                 value="8350^CF^99DCT">
-                          Severe impairment
-                      </label>
-                  </div>
-              </fieldset>
-              
-              <div class="form-group" id="comment3" style="display: none">
-                          <label for="comment3"> <span
-                              class="required">Comments</span>
-                          </label> <input class="form-control" id="comment3"
-                              name="comment3" type="text" data-concept="7047^comment^99DCT"  required="required">
-              </div> 
-              
-          </div>
-          </div>
-  
-          <div class="section form-group">
-              <div class="form-group">
-                  <label> Other co-morbidities diagnosed or that the patient is taking medication for <span
-                      class="required">*</span>
-                  </label>
-                  <div class="form-group">
-                      <label class="font-normal"> <input name="co-morbidities"
-                          id="Diabetes" type="checkbox"
-                          data-concept="8352^illness^99DCT" value="1683^English^99DCT" />
-                          Diabetes
-                      </label>
-                  </div>
-                  <div class="form-group">
-                      <label class="font-normal"> <input name="co-morbidities"
-                          id="Asthsma" type="checkbox"
-                          data-concept="8352^illness^99DCT" value="5^Asthma^99DCT" /> Asthma
-                      </label>
-                  </div>
-                  <div class="form-group">
-                      <label class="font-normal"> <input name="co-morbidities"
-                          id="Hypertension" type="checkbox"
-                          data-concept="8352^illness^99DCT" value="903^Hypertension^99DCT" />
-                          Hypertension
-                      </label>
-                  </div>
-                  <div class="form-group">
-                      <label class="font-normal"> <input name="co-morbidities"
-                          id="Hypertension" type="checkbox"
-                          data-concept="8352^illness^99DCT" value="58^TB^99DCT" />
-                          TB
-                      </label>
-                  </div>
-                  <div class="form-group">
-                      <label class="font-normal"> <input name="co-morbidities"
-                          id="Hypertension" type="checkbox"
-                          data-concept="8352^illness^99DCT" value="8353^Kidney^99DCT" />
-                          Kidney
-                      </label>
-                  </div>
-                  <div class="form-group">
-                      <label class="font-normal"> <input name="co-morbidities"
-                          id="Heart" type="checkbox"
-                          data-concept="8352^illness^99DCT" value="6955^Hypertension^99DCT" />
-                          Heart
-                      </label>
-                  </div>
-                  <div class="form-group">
-                      <label class="font-normal"> <input name="co-morbidities"
-                          id="OtherSpecify" type="checkbox"
-                          data-concept="8352^illness^99DCT" value="7918^Hypertension^99DCT" />
-                          Other 
-                      </label>
-                    <div id="dvtxt" style="display: none">
-                       Specify:   
-                       <input type="text" id="txtNumber" />
-                   </div>
-                </div>
-             </div>
-          </div>
-          
-  
-  
+                <label for="review_findings">Specify</label>
+                <input class="form-control" name="specify_specify" type="textfield">
+            </div>
+        </div>
+
+
         <div class="section form-group">
             <div class="form-group">
-              <h5><strong>Mental Health</strong><span class="required">*</span></h5>
-              <label for="mental_health">PHQ-9 score </label>
-              <fieldset name="8318^cmanagement?^99DCT">
-               <select name="patient_type" id="patient_case_management">
-                  
-                  <option value="8310^HVLPF^99DCT"> (0-4) Depression Unlikely</option>
-                  <option value="8311^HVLPF^99DCT">(5-9) Mild Depression</option>
-                  <option value="8312^HVLPM^99DCT">(10-14) Moderate Depression</option>
-                  <option value="8313^HVLPM^99DCT">(15-19) Moderate to severe Depression</option>
-                  <option value="8315^HVLAF^99DCT">(20-27) Severe depression</option>
-                  
-               </select>
-              </fieldset>
+                <h5><strong>Socioeconomic</strong><span class="required">*</span></h5>
+                <label> Financially capable (Able to meet basic needs; Food, Shelter, Clothing) <span
+                        class="required">*</span>
+                </label>
+                <fieldset name="8345^FINANCE^99DCT">
+                    <div class="form-group">
+                        <label class="font-normal"> <input class="financial_capability" name="financial_capability"
+                                id="financial_yes" type="radio" data-concept="8345^FINANACE^99DCT"
+                                value="1065^Yes^99DCT">
+                            Yes
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-normal"> <input class="financial_capability" name="financial_capability"
+                                id="financial_no" type="radio" data-concept="8345^FINANACE^99DCT" value="1066^No^99DCT">
+                            No
+                        </label>
+                    </div>
+                </fieldset>
+                <div class="form-group" id="comment1" style="display: none">
+                    <label for="comment1"> <span class="required">Comment</span>
+                    </label> <input class="form-control" id="comment1" name="comment1" type="text"
+                        data-concept="7047^comment^99DCT" required="required">
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label> Facing financial challenges <span class="required">*</span>
+                </label>
+                <fieldset name="8346^FINANCIAL^99DCT">
+                    <div class="form-group">
+                        <label class="font-normal"> <input class="financial_challenges" name="financial_challenges"
+                                id="fchallenge_yes" type="radio" data-concept="8346^FINANACIAL^99DCT"
+                                value="1065^Yes^99DCT">
+                            Yes
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-normal"> <input class="financial_capability" name="financial_challenges"
+                                id="fchallenge_no" type="radio" data-concept="8346^FINANACIAL^99DCT"
+                                value="1066^No^99DCT">
+                            No
+                        </label>
+                    </div>
+                </fieldset>
+
+                <div class="form-group" id="comment2" style="display: none">
+                    <label for="comment2"> <span class="required">Comment</span>
+                    </label> <input class="form-control" id="comment2" name="comment2" type="text"
+                        data-concept="7047^comment^99DCT" required="required">
+                </div>
+
+            </div>
+        </div>
+
+        <div class="section form-group">
+            <div class="form-group">
+                <label>Educational level <span class="required">*</span></label>
+                <div class="form-group">
+                    <label class="font-normal"> <input name="education" id="college" type="radio"
+                            data-concept="1368^HIGHEST EDUCATION LEVEL^99DCT"
+                            value="1371^SOME COLLEGE/UNIVERSITY^99DCT">
+                        Graduate and above
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="font-normal"> <input name="education" id="secondary" type="radio"
+                            data-concept="1368^HIGHEST EDUCATION LEVEL^99DCT" value="6330^SECONDARY COMPLETED^99DCT">
+                        Secondary School
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="font-normal"> <input name="education" id="primary" type="radio"
+                            data-concept="1368^HIGHEST EDUCATION LEVEL^99DCT" value="6329^PRIMARY COMPLETED^99DCT">
+                        Primary School
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="font-normal"> <input name="education" id="no_education" type="radio"
+                            data-concept="1368^HIGHEST EDUCATION LEVEL^99DCT" value="1107^NONE^99DCT"> None
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="form-group">
+                <h5><strong>Cognitive Functioning</strong><span class="required">*</span></h5>
+                <fieldset name="8351^COGNITIVE FUNCTION^99DCT">
+                    <div class="form-group">
+                        <label class="font-normal">
+                            <input class="impairment" name="status" id="nocog_function" type="radio"
+                                data-concept="8351^COGNITIVE FUNCTIONING^99DCT" value="8348^CF^99DCT">
+                            No impairment
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-normal">
+                            <input class="impairment" name="status" id="mincog_function" type="radio"
+                                data-concept="8351^COGNITIVE FUNCTIONING^99DCT" value="8349^CF^99DCT">
+                            Minimal to Moderate impairment
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-normal">
+                            <input class="impairment" name="status" id="svcog_function" type="radio"
+                                data-concept="8351^COGNITIVE FUNCTIONING^99DCT" value="8350^CF^99DCT">
+                            Severe impairment
+                        </label>
+                    </div>
+                </fieldset>
+
+                <div class="form-group" id="comment3" style="display: none">
+                    <label for="comment3"> <span class="required">Comments</span>
+                    </label> <input class="form-control" id="comment3" name="comment3" type="text"
+                        data-concept="7047^comment^99DCT" required="required">
+                </div>
+
+            </div>
+        </div>
+
+        <div class="section form-group">
+            <div class="form-group">
+                <label> Other co-morbidities diagnosed or that the patient is taking medication for <span
+                        class="required">*</span>
+                </label>
+                <div class="form-group">
+                    <label class="font-normal"> <input name="co-morbidities" id="Diabetes" type="checkbox"
+                            data-concept="8352^illness^99DCT" value="1683^English^99DCT" />
+                        Diabetes
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="font-normal"> <input name="co-morbidities" id="Asthsma" type="checkbox"
+                            data-concept="8352^illness^99DCT" value="5^Asthma^99DCT" /> Asthma
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="font-normal"> <input name="co-morbidities" id="Hypertension" type="checkbox"
+                            data-concept="8352^illness^99DCT" value="903^Hypertension^99DCT" />
+                        Hypertension
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="font-normal"> <input name="co-morbidities" id="Hypertension" type="checkbox"
+                            data-concept="8352^illness^99DCT" value="58^TB^99DCT" />
+                        TB
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="font-normal"> <input name="co-morbidities" id="Hypertension" type="checkbox"
+                            data-concept="8352^illness^99DCT" value="8353^Kidney^99DCT" />
+                        Kidney
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="font-normal"> <input name="co-morbidities" id="Heart" type="checkbox"
+                            data-concept="8352^illness^99DCT" value="6955^Hypertension^99DCT" />
+                        Heart
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="font-normal"> <input name="co-morbidities" id="OtherSpecify" type="checkbox"
+                            data-concept="8352^illness^99DCT" value="7918^Hypertension^99DCT" />
+                        Other
+                    </label>
+                    <div id="dvtxt" style="display: none">
+                        Specify:
+                        <input type="text" id="txtNumber" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="section form-group">
+            <div class="form-group">
+                <h5><strong>Mental Health</strong><span class="required">*</span></h5>
+                <label for="mental_health">PHQ-9 score </label>
+                <fieldset name="8318^cmanagement?^99DCT">
+                    <select name="patient_type" id="patient_case_management">
+
+                        <option value="8310^HVLPF^99DCT"> (0-4) Depression Unlikely</option>
+                        <option value="8311^HVLPF^99DCT">(5-9) Mild Depression</option>
+                        <option value="8312^HVLPM^99DCT">(10-14) Moderate Depression</option>
+                        <option value="8313^HVLPM^99DCT">(15-19) Moderate to severe Depression</option>
+                        <option value="8315^HVLAF^99DCT">(20-27) Severe depression</option>
+
+                    </select>
+                </fieldset>
             </div>
             <div class="form-group">
                 <label for="mental_health">Is patient on treatment or ever been treated for this? </label>
-                <input class="form-control" id="mental_treatment" name="mental" data-concept="8354^illness^99DCT"type="text">  
-            </div>    
+                <input class="form-control" id="mental_treatment" name="mental" data-concept="8354^illness^99DCT"
+                    type="text">
+            </div>
         </div>
-  
-  
+
+
         <div class="section form-group">
-                  <h5><strong>Adherence Review</strong><span class="required">*</span></h5>
-        <div class="form-group">
-                  <script src="http://demo.expertphp.in/js/jquery.js"></script>
-  
-           <div class="form-group input_fields_container">
-                <label> Treatment Motivators<span class="required">*</span>
-                </label>
-                <div><input id="findings" name="key_findings" type="text" data-concept="8355^Findings^99DCT" style="width:90%">
-                  <button class="btn btn-sm btn-primary add_more_button">+</button>
-              </div>
-         </div>    
-  
-  <script>    
-            $(document).ready(function() {
-            var max_fields_limit      = 10; //maximum input boxes allowed
-            var x = 1; //initlal text box count
-            $('.add_more_button').click(function(e){ //on add input button click
-                e.preventDefault();
-                if(x < max_fields_limit){ //max input box allowed
-                    x++; //text box increment
-                    $('.input_fields_container').append('<div><input type="text" style="width:90%" name="key_findings[]"/><a href="#" class="remove_field" style="margin-left:10px;">remove</a></div>'); //add input box
-                }
-            });
-            
-            $('.input_fields_container').on("click",".remove_field", function(e){ //user click on remove text
-                e.preventDefault(); $(this).parent('div').remove(); x--;
-            })
-        });
-  </script> 
-  
-        <div class="form-group input_fields_container1">
-                <label> Treatment Barriers<span class="required">*</span>
-                </label>
-                <div><input  id="followup" name="followup_plan" type="text" data-concept="8356^barriers^99DCT" style="width:90%">
-                     <button class="btn btn-sm btn-primary add_more_button1">+</button>
+            <h5><strong>Adherence Review</strong><span class="required">*</span></h5>
+            <div class="form-group">
+                <script src="http://demo.expertphp.in/js/jquery.js"></script>
+
+                <div class="form-group input_fields_container">
+                    <label> Treatment Motivators<span class="required">*</span>
+                    </label>
+                    <div><input id="findings" name="key_findings" type="text" data-concept="8355^Findings^99DCT"
+                            style="width:90%">
+                        <button class="btn btn-sm btn-primary add_more_button">+</button>
+                    </div>
                 </div>
-       </div>
-           
-        
-          
-            <script>    
-                $(document).ready(function() {
-                var max_fields_limit      = 10; //maximum input boxes allowed
-                var x = 1; //initlal text box count
-                $('.add_more_button1').click(function(e){ //on add input button click
-                    e.preventDefault();
-                    if(x < max_fields_limit){ //max input box allowed
-                        x++; //text box increment
-                        $('.input_fields_container1').append('<div><input type="text" style="width:90%" name="followup_plan[]"/><a href="#" class="remove_field" style="margin-left:10px;">remove</a></div>'); //add input box
-                    }
-                });
-                
-                $('.input_fields_container1').on("click",".remove_field", function(e){ //user click on remove text
-                    e.preventDefault(); $(this).parent('div').remove(); x--;
-                })
-            });
-            </script> 
-       </div>
-    </div>
-  
-  
-    <div class="section form-group">
-              <div class="form-group">
-                  <label> Psychosocial stressors <span
-                      class="required">*</span>
-                  </label>
-                  <div class="form-group">
-                      <label class="font-normal"> <input name="Psychosocial"
-                          id="injury_illness" type="checkbox"
-                          data-concept="8340^Stressor^99DCT" value="8321^stressors^99DCT" />
-                          Personal injury/illness
-                      </label>
-                  </div>
-                  <div class="form-group">
-                      <label class="font-normal"> <input name="Psychosocial"
-                          id="children" type="checkbox"
-                          data-concept="8340^Stressor^99DCT" value="8322^stressors^99DCT" /> Children stressors
-                      </label>
-                  </div>
-                  <div class="form-group">
-                      <label class="font-normal"> <input name="Psychosocial"
-                          id="partner" type="checkbox"
-                          data-concept="8340^Stressor^99DCT" value="8324^stressors^99DCT" />
-                          Partner stressors
-                      </label>
-                  </div>
-                  <div class="form-group">
-                      <label class="font-normal"> <input name="Psychosocial"
-                          id="financial" type="checkbox"
-                          data-concept="8340^Stressor^99DCT" value="8326^stressors^99DCT" />
-                          Financial issues
-                      </label>
-                  </div>
-                  <div class="form-group">
-                      <label class="font-normal"> <input name="Psychosocial"
-                          id="death" type="checkbox"
-                          data-concept="8340^Stressor^99DCT" value="8327^stressors^99DCT" />
-                          Death/bereavement of family/friend
-                      </label>
-                  </div>
-                  <div class="form-group">
-                      <label class="font-normal"> <input name="Psychosocial"
-                          id="work_school" type="checkbox"
-                          data-concept="8340^Stressor^99DCT" value="8329^stressors^99DCT" />
-                          Work/school stressors
-                      </label>
-                  </div>
-                  <div class="form-group">
-                      <label class="font-normal"> <input name="Psychosocial"
-                          id="housing" type="checkbox"
-                          data-concept="8340^Stressor^99DCT" value="8330^stressors^99DCT" />
-                          Housing stressors
-                      </label>
-                  </div>
-                  <div class="form-group">
-                      <label class="font-normal"> <input name="Psychosocial"
-                          id="legal" type="checkbox"
-                          data-concept="8340^Stressor^99DCT" value="8332^stressors^99DCT" />
-                          Legal issues
-                      </label>
-                  </div>
-                  <div class="form-group">
-                      <label class="font-normal"> <input name="Psychosocial"
-                          id="child_care" type="checkbox"
-                          data-concept="8340^Stressor^99DCT" value="8333^stressors^99DCT" />
-                          Child care challenges
-                      </label>
-                  </div>
-                  <div class="form-group">
-                      <label class="font-normal"> <input name="Psychosocial"
-                          id="transportation" type="checkbox"
-                          data-concept="8340^Stressor^99DCT" value="8335^stressors^99DCT" />
-                          Transportation issues
-                      </label>
-                  </div>
-                  <div class="form-group">
-                      <label class="font-normal"> <input name="Psychosocial"
-                          id="OtherSpecify" type="checkbox"
-                          data-concept="8340^Stressor^99DCT" value="8337^stressors^99DCT" />
-                          Solitary living/No supporters 
-                      </label>
-                  </div>
-                  <div class="form-group">
-                      <label class="font-normal"> <input name="Psychosocial"
-                          id="OtherSpecify1" type="checkbox"
-                          data-concept="8340^Other^99DCT" value="7918^Other^99DCT" />
-                          Other
-                      </label>
-      <div id="dvtxt1" style="display: none">
-      Specify:
-      <input type="text" id="txtNumber1" />
-  </div>
-                  </div>
-                  
-                  <div class="form-group">
-                      <label for="other_comments">Comment </label>
-                      <input class="form-control" id="other_comments" name="mental" type="text-area">
-              </div>
-                  
-              </div>
- </div> 
-  
-          <div class="section form-group">
-              <div class="form-group">
-                      <label for="other_comments">General Comments </label>
-                      <input class="form-control" id="other_comments" name="mental" type="text-area">
-              </div>    
-          </div> 
-  
-           
-               
-               <div class="section form-group" id="not_known_new_positive_client">
-              <div class="form-group">
-                  <h5><strong>Conclusion</strong></h5>
-                  <label> Eligible for case manager: <span
-                      class="required">*</span></label>
-                  <fieldset name="7134^INFORMED CONSENT^99DCT">
-                      <div class="form-group">
-                          <label class="font-normal"> <input class="patient_consent"
-                              name="case_manager" id="yes_casemanagerelg" type="radio"
-                              data-concept="7134^INFORMED CONSENT^99DCT" value="1065^Yes^99DCT">
-                              Yes
-                          </label>
-                      </div>
-                      <div class="form-group">
-                          <label class="font-normal"> <input class="patient_consent"
-                              name="case_manager" id="no_casemanagerelg" type="radio"
-                              data-concept="7134^INFORMED CONSENT^99DCT" value="1066^No^99DCT">
-                              No
-                          </label>
-                      </div>
-  
-  
-                      <div class="form-group" id="case_manager" style="display: None">
-                          <label for="patient.family_name">Name of case manager <span
-                              class="required">*</span>
-                          </label> <input class="form-control" id="patient.family_name"
-                              name="patient.family_name" type="text"  required="required" >
-                      </div>
-                  </fieldset>
-              </div>
-          </div>
-               
-  
-          <div class="section form-group">
-              <div class="form-group">
-                      <label for="assesor_sign">Assessed by (initials,sign):  </label>
-                      <input class="form-control" id="assesor" name="sign" data-concept="8357^Assessed^99DCT" type="text">
-              </div>   
-              <div class="form-group">
-                      <label for="reviewer_sign">Reviewed by (initials,sign):  </label>
-                      <input class="form-control" id="reviewer" name="sign" data-concept="8358^Review^99DCT" type="text">
-              </div>  
-          </div> 
-  
-      </form>
-  </body>
-  
-  <script type="text/javascript">
-  
-  
-  //-------------- yes_case_manager
-                          $("input[id='yes_casemanagerelg']:radio ").change(
-                                  function() {
-                                      $('#case_manager').show();
-                                  });
-  
-                          //----------------- no_case_manager
-                          $("input[id='no_casemanagerelg']:radio ").change(
-                                  function() {
-                                      $('#case_manager').hide();
-                                  });
-  
-  //-------------- social economic /basic needs 
-                          $("input[id='financial_yes']:radio ").change(function() {
-                              $('#comment1').hide();	
-                          });
-  
-                          $("input[id='financial_no']:radio ").change(function() {
-                              $('#comment1').show();
-                          });
-  //-------------- social economic/financial challenges						
-                          
-                          $("input[id='fchallenge_yes']:radio ").change(function() {
-                              $('#comment2').show();	
-                          });
-  
-                          $("input[id='fchallenge_no']:radio ").change(function() {
-                              $('#comment2').hide();
-                          });
-                          
-                          
-  //-------------- cogntive functioning						
-                          
-                          $("input[id='nocog_function']:radio ").change(function() {
-                              $('#comment3').hide();	
-                          });
-  
-                          $("input[id='mincog_function']:radio ").change(function() {
-                              $('#comment3').show();
-                          });
-                          
-                          $("input[id='svcog_function']:radio ").change(function() {
-                              $('#comment3').show();
-                          });
-                          
-  
-  $(function () {
-          $("#OtherSpecify1").click(function () {
-              if ($(this).is(":checked")) {
-                  $("#dvtxt1").show();
-              } else {
-                  $("#dvtxt1").hide();
-              }
-          });
-      });
-          
-  
-  $(function () {
-          $("#OtherSpecify").click(function () {
-              if ($(this).is(":checked")) {
-                  $("#dvtxt").show();
-              } else {
-                  $("#dvtxt").hide();
-              }
-          });
-      });        
-  
-  
-  
-  
-  
-   $(document).ready(function() {
-   // Set Encounter DateTime for date of screening
-      var dateFormat = "dd-mm-yy ";
-      var currentDate = $.datepicker.formatDate(dateFormat, new Date());
-      var encounterDatetime = $('#encounter\\.encounter_datetime');
-      if ($(encounterDatetime).val() == " ") {
-          $(encounterDatetime).val(currentDate);
-      }
-  
-      var currentYear = new Date().getFullYear();
-      var birthdate_start_year = currentYear - 140;
-      $('.birth_date_picker').datepicker({
-          dateFormat: dateFormat,
-          changeMonth: true,
-          changeYear: true,
-          yearRange: birthdate_start_year + ':' + currentYear,
-      });
-      
-      
-      // type of patient_case_management
-      $('#patient_type_specify').hide()
-      $('#patient_case_management').click(function() {
-      console.log("THE SELECTED  "+$(this).val())
-      if($(this).val() == "0000^YES^99DCT"){
-      $('#patient_type_specify').show()
-      console.log("THE SELECTED show")
-      } else{
-      console.log("THE SELECTED hide")
-      $('#patient_type_specify').hide()
-      }
-      
-      
-      });
-  
-      
-      
-  
-      $.fn.calculateFields = function() {
-          var tempAgeInYears = $.trim($("#tmp\\.age_in_years").val());
-          if (tempAgeInYears != '') {
-              $('#patient\\.birthdate_estimated').val('true');           
-              $('#patient\\.birth_date').val($.fn.getTempBirthDate(tempAgeInYears));
-          }
-          return true;
-      };
-      $.fn.customValidationCheck = function() {
-          return $.fn.calculateFields();
-      };
-      $.validator.addMethod(
-          "validateConfirmIdentifierElement",
-          function(confirm_other_identifier_value, confirm_identifier_element) {
-              var other_identifier_value = $(confirm_identifier_element).closest('.repeat').find('.check-other-identifier').val();
-              if (other_identifier_value == confirm_other_identifier_value) {
-                  return true;
-              } else {
-                  return false;
-              }
-          },
-          "Other Identifiers do not match."
-      );
-      jQuery.validator.addClassRules({
-          'check-confirm-identifier': {
-              validateConfirmIdentifierElement: true
-          }
-      });
-  
-  
-  });
-  </script>
-        <!-- End Names -->
-        <!-- 
-        <div class="section group-set repeat" data-group="patient.personaddress">
-            <h4>ADDRESS</h4>
-            <div class="form-group">
-                <label for="patient.county">County </label>
-                <input class="form-control" id="countyDistrict" name="countyDistrict" type="text"/>
-            </div>
-            <div class="form-group">
-                <label for="patient.location">Location </label>
-                <input class="form-control" id="address6" name="address6" type="text"/>
-            </div>
-            <div class="form-group">
-                <label for="patient.sub_location">Sub-location </label>
-                <input class="form-control" id="address5" name="address5" type="text"/>
-            </div>
-            <div class="form-group">
-                <label for="patient.village">Village </label>
-                <input class="form-control" id="cityVillage" name="cityVillage" type="text"/>
-            </div>
-            <div class="form-group">
-                <label for="patient.landmark">Landmark </label>
-                <input class="form-control" id="patient.landmark" name="patient.landmark" type="text"/>
-            </div>
-            <div class="form-group">
-                <label class="font-normal">
-                    <input name="declined_phone" id="chk_declined_phone" type="checkbox"/> Client Declined/Doesn't Have Phone
-                </label>
-                
-                <label for="patient.phone_number">
-                    Phone Number <span class="required">*</span>
-                </label>
-                <input class="form-control phoneNumber" id="patient.phone_number" name="patient.phone_number" type="tel" required="required"/>    
-            </div>
-            <div class="form-group">
-                <label for="patient.alternate_phone_contact">Alternate Phone Number </label>
-                <input class="form-control phoneNumber" id="patient.alternate_phone_contact" name="patient.alternate_phone_contact" type="tel"/>
-            </div>
-            <div class="form-group">
-                <label for="patient.postal_address">Postal Address </label>
-                <input class="form-control" id="patient.postal_address" name="patient.postal_address" type="text"/>
+
+
+
+                <div class="form-group input_fields_container1">
+                    <label> Treatment Barriers<span class="required">*</span>
+                    </label>
+                    <div><input id="followup" name="followup_plan" type="text" data-concept="8356^barriers^99DCT"
+                            style="width:90%">
+                        <button class="btn btn-sm btn-primary add_more_button1">+</button>
+                    </div>
+                </div>
+
+
+
+
             </div>
         </div>
-        >
-        <div class="section">
-            <h4>GUARDIAN DETAILS</h4>
+
+
+        <div class="section form-group">
             <div class="form-group">
-                <label for="patient.guardian_first_name">First Name </label>
-                <input class="form-control" id="patient.guardian_first_name" name="patient.guardian_first_name" type="text"/>
-            </div>
-            <div class="form-group">
-                <label for="patient.guardian_last_name">Last Name </label>
-                <input class="form-control" id="patient.guardian_last_name" name="patient.guardian_last_name" type="text"/>
-            </div>
-        </div>
-        
-        <div class="section">
-            <h4>NEXT OF KIN DETAILS</h4>
-            <div class="form-group">
-                <label class="font-normal">
-                    <input name="declined_nextofkin" id="chk_declined_nextofkin" type="checkbox"/> Declined To Answer<i></i>
+                <label> Psychosocial stressors <span class="required">*</span>
                 </label>
-            </div>
-            <div id="div_nextofkin" class="form-group">
                 <div class="form-group">
-                    <label for="patient.next_of_kin_name">Next of kin name <span class="required">*</span></label>
-                    <input class="form-control" id="patient.next_of_kin_name" name="patient.next_of_kin_name" type="text"/>
+                    <label class="font-normal"> <input name="Psychosocial" id="injury_illness" type="checkbox"
+                            data-concept="8340^Stressor^99DCT" value="8321^stressors^99DCT" />
+                        Personal injury/illness
+                    </label>
                 </div>
                 <div class="form-group">
-                    <label for="patient.next_of_kin_relationship">Next of kin relationship <span class="required">*</span></label>
-                    <input class="form-control" id="patient.next_of_kin_relationship" name="patient.next_of_kin_relationship" type="text"/>
+                    <label class="font-normal"> <input name="Psychosocial" id="children" type="checkbox"
+                            data-concept="8340^Stressor^99DCT" value="8322^stressors^99DCT" /> Children stressors
+                    </label>
                 </div>
                 <div class="form-group">
-                    <label for="patient.next_of_kin_contact">Next of kin contact <span class="required">*</span></label>
-                    <input class="form-control" id="patient.next_of_kin_contact" name="patient.next_of_kin_contact" type="text"/>
+                    <label class="font-normal"> <input name="Psychosocial" id="partner" type="checkbox"
+                            data-concept="8340^Stressor^99DCT" value="8324^stressors^99DCT" />
+                        Partner stressors
+                    </label>
                 </div>
                 <div class="form-group">
-                    <label for="patient.next_of_kin_name">Next of kin address <span class="required">*</span></label>
-                    <input class="form-control" id="patient.next_of_kin_address" name="patient.next_of_kin_address" type="text"/>
+                    <label class="font-normal"> <input name="Psychosocial" id="financial" type="checkbox"
+                            data-concept="8340^Stressor^99DCT" value="8326^stressors^99DCT" />
+                        Financial issues
+                    </label>
                 </div>
+                <div class="form-group">
+                    <label class="font-normal"> <input name="Psychosocial" id="death" type="checkbox"
+                            data-concept="8340^Stressor^99DCT" value="8327^stressors^99DCT" />
+                        Death/bereavement of family/friend
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="font-normal"> <input name="Psychosocial" id="work_school" type="checkbox"
+                            data-concept="8340^Stressor^99DCT" value="8329^stressors^99DCT" />
+                        Work/school stressors
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="font-normal"> <input name="Psychosocial" id="housing" type="checkbox"
+                            data-concept="8340^Stressor^99DCT" value="8330^stressors^99DCT" />
+                        Housing stressors
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="font-normal"> <input name="Psychosocial" id="legal" type="checkbox"
+                            data-concept="8340^Stressor^99DCT" value="8332^stressors^99DCT" />
+                        Legal issues
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="font-normal"> <input name="Psychosocial" id="child_care" type="checkbox"
+                            data-concept="8340^Stressor^99DCT" value="8333^stressors^99DCT" />
+                        Child care challenges
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="font-normal"> <input name="Psychosocial" id="transportation" type="checkbox"
+                            data-concept="8340^Stressor^99DCT" value="8335^stressors^99DCT" />
+                        Transportation issues
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="font-normal"> <input name="Psychosocial" id="OtherSpecify" type="checkbox"
+                            data-concept="8340^Stressor^99DCT" value="8337^stressors^99DCT" />
+                        Solitary living/No supporters
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="font-normal"> <input name="Psychosocial" id="OtherSpecify1" type="checkbox"
+                            data-concept="8340^Other^99DCT" value="7918^Other^99DCT" />
+                        Other
+                    </label>
+                    <div id="dvtxt1" style="display: none">
+                        Specify:
+                        <input type="text" id="txtNumber1" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="other_comments">Comment </label>
+                    <input class="form-control" id="other_comments" name="mental" type="text-area">
+                </div>
+
             </div>
         </div>
-        
+
+        <div class="section form-group">
+            <div class="form-group">
+                <label for="other_comments">General Comments </label>
+                <input class="form-control" id="other_comments" name="mental" type="text-area">
+            </div>
+        </div>
+
+
+
+        <div class="section form-group" id="not_known_new_positive_client">
+            <div class="form-group">
+                <h5><strong>Conclusion</strong></h5>
+                <label> Eligible for case manager: <span class="required">*</span></label>
+                <fieldset name="7134^INFORMED CONSENT^99DCT">
+                    <div class="form-group">
+                        <label class="font-normal"> <input class="patient_consent" name="case_manager"
+                                id="yes_casemanagerelg" type="radio" data-concept="7134^INFORMED CONSENT^99DCT"
+                                value="1065^Yes^99DCT">
+                            Yes
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-normal"> <input class="patient_consent" name="case_manager"
+                                id="no_casemanagerelg" type="radio" data-concept="7134^INFORMED CONSENT^99DCT"
+                                value="1066^No^99DCT">
+                            No
+                        </label>
+                    </div>
+
+
+                    <div class="form-group" id="case_manager" style="display: None">
+                        <label for="patient.family_name">Name of case manager <span class="required">*</span>
+                        </label> <input class="form-control" id="patient.family_name" name="patient.family_name"
+                            type="text" required="required">
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+
+
+        <div class="section form-group">
+            <div class="form-group">
+                <label for="assesor_sign">Assessed by (initials,sign): </label>
+                <input class="form-control" id="assesor" name="sign" data-concept="8357^Assessed^99DCT" type="text">
+            </div>
+            <div class="form-group">
+                <label for="reviewer_sign">Reviewed by (initials,sign): </label>
+                <input class="form-control" id="reviewer" name="sign" data-concept="8358^Review^99DCT" type="text">
+            </div>
+        </div>
+
         <div class="section">
             <div class="form-group">
                 <label for="encounter.location_id">Encounter Location <span class="required">*</span></label>
-                <input class="form-control valid-location-only" id="encounter.location_id" type="text" placeholder="Start typing something..." required="required"/>
-                <input class="form-control" name="encounter.location_id" type="hidden"/>
+                <input class="form-control valid-location-only" id="encounter.location_id" type="text"
+                    placeholder="Start typing something..." required="required" />
+                <input class="form-control" name="encounter.location_id" type="hidden" />
             </div>
             <div class="form-group hidden">
                 <label for="encounter.location_id_select">Encounter Location <span class="required">*</span></label>
@@ -796,8 +507,9 @@
             </div>
             <div class="form-group">
                 <label for="encounter.provider_id_select">Provider Name <span class="required">*</span></label>
-                <input class="form-control valid-provider-only" id="encounter.provider_id_select" type="text" placeholder="Start typing something..." required="required"/>
-                <input class="form-control" name="encounter.provider_id_select" type="hidden"/>
+                <input class="form-control valid-provider-only" id="encounter.provider_id_select" type="text"
+                    placeholder="Start typing something..." required="required" />
+                <input class="form-control" name="encounter.provider_id_select" type="hidden" />
             </div>
             <div class="form-group hidden">
                 <select id="select_providers">
@@ -805,184 +517,294 @@
             </div>
             <div class="form-group show_provider_id_text">
                 <label for="encounter.provider_id">Provider's System-Id <span class="required">*</span></label>
-                <input class="form-control checkDigit" id="encounter.provider_id" name="encounter.provider_id" type="text" readonly="readonly" required="required"/>
+                <input class="form-control checkDigit" id="encounter.provider_id" name="encounter.provider_id"
+                    type="text" readonly="readonly" required="required" />
             </div>
             <div class="form-group">
                 <label for="encounter.encounter_datetime">Encounter DateTime <span class="required">*</span></label>
-                <input class="form-control nonFutureDate past-date datepicker" readonly="readonly" id="encounter.encounter_datetime" name="encounter.encounter_datetime" type="text" required="required"/>
+                <input class="form-control nonFutureDate past-date datepicker" readonly="readonly"
+                    id="encounter.encounter_datetime" name="encounter.encounter_datetime" type="text"
+                    required="required" />
             </div>
             <div class="form-group">
-                <input class="form-control" id="encounter.form_uuid" name="encounter.form_uuid" type="hidden" required="required"/>
+                <input class="form-control" id="encounter.form_uuid" name="encounter.form_uuid" type="hidden"
+                    required="required" />
             </div>
         </div>
-    -->
-
 
     </form>
 </body>
+
+
+
+
+</form>
+</body>
 <script type="text/javascript">
-$(document).ready(function() {
-    // Set Encounter DateTime
-    var dateFormat = "dd-mm-yy";
-    var currentDate = $.datepicker.formatDate(dateFormat, new Date());
-    var encounterDatetime = $('#encounter\\.encounter_datetime');
-    if ($(encounterDatetime).val() == "") {
-        $(encounterDatetime).val(currentDate);
-    }
-
-    var currentYear = new Date().getFullYear();
-    var birthdate_start_year = currentYear - 140;
-    $('.birth_date_picker').datepicker({
-        dateFormat: dateFormat,
-        changeMonth: true,
-        changeYear: true,
-        yearRange: birthdate_start_year + ':' + currentYear,
-    });
-    $('#save_draft').click(function() {
-        // pre process the medications
-        $(this).prop('disabled', true);
-        document.saveDraft(this);
-        $(this).prop('disabled', false);
-    });
-    $('#submit_form').click(function() {
-        // pre process the medications
-        $(this).prop('disabled', true);
-        document.submit();
-        $(this).prop('disabled', false);
-    });
+    $(document).ready(function () {
+        // Set Encounter DateTime
 
 
-    $.fn.calculateFields = function() {
-        var tempAgeInYears = $.trim($("#tmp\\.age_in_years").val());
-        if (tempAgeInYears != '') {
-            $('#patient\\.birthdate_estimated').val('true');           
-            $('#patient\\.birth_date').val($.fn.getTempBirthDate(tempAgeInYears));
-        }
-        return true;
-    };
-    $.fn.customValidationCheck = function() {
-        return $.fn.calculateFields();
-    };
+        document.setupValidationForProvider("$('#encounter\\.provider_id_select').val()", "encounter\\.provider_id");
+        document.setupValidationForLocation("$('#encounter\\.location_id').val()", "encounter\\.location_id");
 
-    $.validator.addMethod(
-        "validateConfirmIdentifierElement",
-        function(confirm_other_identifier_value, confirm_identifier_element) {
-            var other_identifier_value = $(confirm_identifier_element).closest('.repeat').find('.check-other-identifier').val();
-            if (other_identifier_value == confirm_other_identifier_value) {
-                return true;
-            } else {
-                return false;
+        document.setupAutoCompleteData('encounter\\.location_id');
+        document.setupAutoCompleteDataForProvider('encounter\\.provider_id_select');
+
+
+        var max_fields_limit = 10; //maximum input boxes allowed
+        var x = 1; //initlal text box count
+        $('.add_more_button').click(function (e) { //on add input button click
+            e.preventDefault();
+            if (x < max_fields_limit) { //max input box allowed
+                x++; //text box increment
+                $('.input_fields_container').append('<div><input type="text" style="width:90%" name="key_findings[]"/><a href="#" class="remove_field" style="margin-left:10px;">remove</a></div>'); //add input box
             }
-        },
-        "Other Identifiers do not match."
-    );
-    jQuery.validator.addClassRules({
-        'check-confirm-identifier': {
-            validateConfirmIdentifierElement: true
-        }
-    });
+        });
 
+        $('.input_fields_container').on("click", ".remove_field", function (e) { //user click on remove text
+            e.preventDefault(); $(this).parent('div').remove(); x--;
+        })
 
-    $('.identifier_type_name').change(function() {
-        var selected_val = $(this).val();
-        console.log(selected_val);
-        if (selected_val == "") {
-            $(this).closest('.repeat').find('.identifier_value_section').hide();
-        } else {
-            if (selected_val == $('#amrs_medical_record_number').val() || selected_val == $('#hct_id').val() || selected_val == $('#pmtct_id')) {
-                $('#other_identifier_value').addClass('checkDigit');
-                $('#confirm_other_identifier_value').addClass('checkDigit');
-            } else {
-                $('#other_identifier_value').removeClass('checkDigit');
-                $('#confirm_other_identifier_value').removeClass('checkDigit');
+        var max_fields_limit = 10; //maximum input boxes allowed
+        var x = 1; //initlal text box count
+        $('.add_more_button1').click(function (e) { //on add input button click
+            e.preventDefault();
+            if (x < max_fields_limit) { //max input box allowed
+                x++; //text box increment
+                $('.input_fields_container1').append('<div><input type="text" style="width:90%" name="followup_plan[]"/><a href="#" class="remove_field" style="margin-left:10px;">remove</a></div>'); //add input box
             }
-            $(this).closest('.repeat').find('.identifier_value_section').show();
+        });
+
+        $('.input_fields_container1').on("click", ".remove_field", function (e) { //user click on remove text
+            e.preventDefault(); $(this).parent('div').remove(); x--;
+        })
+        // Set Encounter DateTime for date of screening
+        var dateFormat = "dd-mm-yy ";
+        var currentDate = $.datepicker.formatDate(dateFormat, new Date());
+        var encounterDatetime = $('#encounter\\.encounter_datetime');
+        if ($(encounterDatetime).val() == " ") {
+            $(encounterDatetime).val(currentDate);
         }
-    });
-    $('.identifier_type_name').trigger('change');
-    document.setupAutoCompleteData('encounter\\.location_id');
-    document.setupAutoCompleteDataForProvider('encounter\\.provider_id_select');
-    $('#registration_form').validate({
-        rules: {
-            'tmp.age_in_years': {
-                range: [0, 120]
+
+        var currentYear = new Date().getFullYear();
+        var birthdate_start_year = currentYear - 140;
+        $('.birth_date_picker').datepicker({
+            dateFormat: dateFormat,
+            changeMonth: true,
+            changeYear: true,
+            yearRange: birthdate_start_year + ':' + currentYear,
+        });
+
+
+        // type of patient_case_management
+        $('#patient_type_specify').hide()
+        $('#patient_case_management').click(function () {
+            console.log("THE SELECTED  " + $(this).val())
+            if ($(this).val() == "7918^YES^99DCT") {
+                $('#patient_type_specify').show()
+                console.log("THE SELECTED show")
+            } else {
+                console.log("THE SELECTED hide")
+                $('#patient_type_specify').hide()
+            }
+
+
+        });
+
+
+
+
+        $.fn.calculateFields = function () {
+            var tempAgeInYears = $.trim($("#tmp\\.age_in_years").val());
+            if (tempAgeInYears != '') {
+                $('#patient\\.birthdate_estimated').val('true');
+                $('#patient\\.birth_date').val($.fn.getTempBirthDate(tempAgeInYears));
+            }
+            return true;
+        };
+        $.fn.customValidationCheck = function () {
+            return $.fn.calculateFields();
+        };
+        $.validator.addMethod(
+            "validateConfirmIdentifierElement",
+            function (confirm_other_identifier_value, confirm_identifier_element) {
+                var other_identifier_value = $(confirm_identifier_element).closest('.repeat').find('.check-other-identifier').val();
+                if (other_identifier_value == confirm_other_identifier_value) {
+                    return true;
+                } else {
+                    return false;
+                }
             },
-            'patient.phone_number': {
-                required: true
-            }
-        }
-    });
-    document.setupValidationForProvider("$('#encounter\\.provider_id_select').val()", "encounter\\.provider_id");
-    document.setupValidationForLocation("$('#encounter\\.location_id').val()", "encounter\\.location_id");
-
-
-    // On BirthDate By Change()
-    var dobType = $('#tmp\\.birthdate_type');
-    dobType.change(function() {
-        var $show_birth_date = $('.show_birthdate');
-        var $show_age = $('.show_age');
-        if ($('#tmp\\.birthdate_type').val() == 'age') {
-            $show_age.show();
-            $show_birth_date.find('input').val('');
-            $show_birth_date.hide();
-        } else {
-            $show_age.hide();
-            $show_age.find('input').val('');
-            $show_birth_date.find('input').val('');
-            $show_birth_date.show();
-        }
-    });
-    dobType.trigger('change');
-
-    // On AgeInYears TextChanged
-    // Set DOB to 15-06-YYYY
-    var value = $("#tmp.age_in_years").val();
-    $("#tmp\\.age_in_years").on('keyup change click', function () {
-        var tempAgeInYears = $.trim($("#tmp\\.age_in_years").val());
-        if (tempAgeInYears != '') {
-            $('#patient\\.birthdate_estimated').val('true');           
-            //$('#patient\\.birth_date').val($.fn.getTempBirthDate(tempAgeInYears));
-            var dob = $.fn.getTempBirthDate(tempAgeInYears);
-            var year = dob.slice(-4);
-            var newdob = '15-06-' + year
-            $('#patient\\.birth_date').val(newdob);
-        }        
-    });
-
-    // Declined To NextOfKin Change()
-    $("input[name='declined_nextofkin']:checkbox")
-        .change(function() {
-            var val = $('#chk_declined_nextofkin').prop("checked");
-            if (val) {
-                $('#div_nextofkin').hide();
-                $('#patient\\.next_of_kin_name').val('');
-                $('#patient\\.next_of_kin_name').prop('required', false);
-                $('#patient\\.next_of_kin_relationship').val('');
-                $('#patient\\.next_of_kin_relationship').prop('required', false);
-                $('#patient\\.next_of_kin_contact').val('');
-                $('#patient\\.next_of_kin_contact').prop('required', false);
-                $('#patient\\.next_of_kin_address').val('');
-                $('#patient\\.next_of_kin_address').prop('required', false);
-
-            }else{
-                $('#div_nextofkin').show();
+            "Other Identifiers do not match."
+        );
+        jQuery.validator.addClassRules({
+            'check-confirm-identifier': {
+                validateConfirmIdentifierElement: true
             }
         });
 
-    // Decline To Phone Change()
-    $("input[name='declined_phone']:checkbox")
-        .change(function() {
-            var val = $('#chk_declined_phone').prop("checked");
-            if (val) {
-                $('#patient\\.phone_number').val('0700000000');
-                $('#patient\\.alternate_phone_contact').val('0700000000');
 
-            }else{
-                $('#patient\\.phone_number').val('');
-                $('#patient\\.alternate_phone_contact').val('');
+        var dateFormat = "dd-mm-yy";
+        var currentDate = $.datepicker.formatDate(dateFormat, new Date());
+        var encounterDatetime = $('#encounter\\.encounter_datetime');
+        if ($(encounterDatetime).val() == "") {
+            $(encounterDatetime).val(currentDate);
+        }
+
+        var currentYear = new Date().getFullYear();
+        var birthdate_start_year = currentYear - 140;
+        $('.birth_date_picker').datepicker({
+            dateFormat: dateFormat,
+            changeMonth: true,
+            changeYear: true,
+            yearRange: birthdate_start_year + ':' + currentYear,
+        });
+        $('#save_draft').click(function () {
+            // pre process the medications
+            $(this).prop('disabled', true);
+            document.saveDraft(this);
+            $(this).prop('disabled', false);
+        });
+        $('#submit_form').click(function () {
+            // pre process the medications
+            $(this).prop('disabled', true);
+            document.submit();
+            $(this).prop('disabled', false);
+        });
+
+
+        $.fn.calculateFields = function () {
+            var tempAgeInYears = $.trim($("#tmp\\.age_in_years").val());
+            if (tempAgeInYears != '') {
+                $('#patient\\.birthdate_estimated').val('true');
+                $('#patient\\.birth_date').val($.fn.getTempBirthDate(tempAgeInYears));
+            }
+            return true;
+        };
+        $.fn.customValidationCheck = function () {
+            return $.fn.calculateFields();
+        };
+
+        $.validator.addMethod(
+            "validateConfirmIdentifierElement",
+            function (confirm_other_identifier_value, confirm_identifier_element) {
+                var other_identifier_value = $(confirm_identifier_element).closest('.repeat').find('.check-other-identifier').val();
+                if (other_identifier_value == confirm_other_identifier_value) {
+                    return true;
+                } else {
+                    return false;
+                }
+            },
+            "Other Identifiers do not match."
+        );
+        jQuery.validator.addClassRules({
+            'check-confirm-identifier': {
+                validateConfirmIdentifierElement: true
             }
         });
-});
+
+
+        $('.identifier_type_name').change(function () {
+            var selected_val = $(this).val();
+            console.log(selected_val);
+            if (selected_val == "") {
+                $(this).closest('.repeat').find('.identifier_value_section').hide();
+            } else {
+                if (selected_val == $('#amrs_medical_record_number').val() || selected_val == $('#hct_id').val() || selected_val == $('#pmtct_id')) {
+                    $('#other_identifier_value').addClass('checkDigit');
+                    $('#confirm_other_identifier_value').addClass('checkDigit');
+                } else {
+                    $('#other_identifier_value').removeClass('checkDigit');
+                    $('#confirm_other_identifier_value').removeClass('checkDigit');
+                }
+                $(this).closest('.repeat').find('.identifier_value_section').show();
+            }
+        });
+        $('.identifier_type_name').trigger('change');
+        document.setupAutoCompleteData('encounter\\.location_id');
+        document.setupAutoCompleteDataForProvider('encounter\\.provider_id_select');
+        $('#registration_form').validate({
+            rules: {
+                'tmp.age_in_years': {
+                    range: [0, 120]
+                },
+                'patient.phone_number': {
+                    required: true
+                }
+            }
+        });
+        document.setupValidationForProvider("$('#encounter\\.provider_id_select').val()", "encounter\\.provider_id");
+        document.setupValidationForLocation("$('#encounter\\.location_id').val()", "encounter\\.location_id");
+
+
+        // On BirthDate By Change()
+        var dobType = $('#tmp\\.birthdate_type');
+        dobType.change(function () {
+            var $show_birth_date = $('.show_birthdate');
+            var $show_age = $('.show_age');
+            if ($('#tmp\\.birthdate_type').val() == 'age') {
+                $show_age.show();
+                $show_birth_date.find('input').val('');
+                $show_birth_date.hide();
+            } else {
+                $show_age.hide();
+                $show_age.find('input').val('');
+                $show_birth_date.find('input').val('');
+                $show_birth_date.show();
+            }
+        });
+        dobType.trigger('change');
+
+        // On AgeInYears TextChanged
+        // Set DOB to 15-06-YYYY
+        var value = $("#tmp.age_in_years").val();
+        $("#tmp\\.age_in_years").on('keyup change click', function () {
+            var tempAgeInYears = $.trim($("#tmp\\.age_in_years").val());
+            if (tempAgeInYears != '') {
+                $('#patient\\.birthdate_estimated').val('true');
+                //$('#patient\\.birth_date').val($.fn.getTempBirthDate(tempAgeInYears));
+                var dob = $.fn.getTempBirthDate(tempAgeInYears);
+                var year = dob.slice(-4);
+                var newdob = '15-06-' + year
+                $('#patient\\.birth_date').val(newdob);
+            }
+        });
+
+        // Declined To NextOfKin Change()
+        $("input[name='declined_nextofkin']:checkbox")
+            .change(function () {
+                var val = $('#chk_declined_nextofkin').prop("checked");
+                if (val) {
+                    $('#div_nextofkin').hide();
+                    $('#patient\\.next_of_kin_name').val('');
+                    $('#patient\\.next_of_kin_name').prop('required', false);
+                    $('#patient\\.next_of_kin_relationship').val('');
+                    $('#patient\\.next_of_kin_relationship').prop('required', false);
+                    $('#patient\\.next_of_kin_contact').val('');
+                    $('#patient\\.next_of_kin_contact').prop('required', false);
+                    $('#patient\\.next_of_kin_address').val('');
+                    $('#patient\\.next_of_kin_address').prop('required', false);
+
+                } else {
+                    $('#div_nextofkin').show();
+                }
+            });
+
+        // Decline To Phone Change()
+        $("input[name='declined_phone']:checkbox")
+            .change(function () {
+                var val = $('#chk_declined_phone').prop("checked");
+                if (val) {
+                    $('#patient\\.phone_number').val('0700000000');
+                    $('#patient\\.alternate_phone_contact').val('0700000000');
+
+                } else {
+                    $('#patient\\.phone_number').val('');
+                    $('#patient\\.alternate_phone_contact').val('');
+                }
+            });
+    });
 </script>
 
 </html>

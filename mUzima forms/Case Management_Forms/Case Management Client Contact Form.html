@@ -112,21 +112,9 @@
                    <select name="patient_type" id="patient_case_management">
                       <option value="8314^NPPM^99DCT">New Positive Pregnant Mother</option>
                       <option value="8316^NPBFM^99DCT">New Positive Breast Feeding Mother</option>
-                      <option value="8317^PBFA^99DCT">Pregnant Adolescent(10-19yrs)</option>
-                      <option value="8319^PBFA^99DCT">Breast Feeding Adolescent(10-19yrs)</option>
-                      <option value="8320^HVLPBFM^99DCT">High VL pregnant or Breast Feeding Mother</option>
-                      <option value="8323^HVLPF^99DCT">High VL Peadiatric (0-4yrs) Female</option>
-                      <option value="8325^HVLPF^99DCT">High VL Peadiatric (5-9yrs) Female</option>
-                      <option value="8328^HVLPM^99DCT">High VL Peadiatric (0-4yrs) Male</option>
-                      <option value="8331^HVLPM^99DCT">High VL Peadiatric (5-9yrs) Male</option>
-                      <option value="8334^HVLAF^99DCT">High VL Adolescent (10-14yrs) Female</option>
-                      <option value="8338^HVLAF^99DCT">High VL Adolescent (15-19yrs) Female</option>
-                      <option value="8339^HVLAM^99DCT">High VL Adolescent (10-14yrs) Male</option>
-                      <option value="8336^HVLAM^99DCT">High VL Adolescent (15-19yrs) Male</option>
-                      <option value="8341^HVLYF^99DCT">High VL Youths (20-24yrs) Female</option>
-                      <option value="8342^HVLYM^99DCT">High VL Youths (20-24yrs) Male</option>
-                      <option value="8343^HVLADF^99DCT">High VL Adults (25yrs and above) Female</option>
-                      <option value="8344^HVLADM^99DCT">High VL Adults (25yrs and above) Male</option>
+                      <option value="8317^PBFA^99DCT">Pregnant Adolescent</option>
+                      <option value="8319^PBFA^99DCT">Breast Feeding Adolescent</option>
+                      <option value="8469^HVLPBFM^99DCT">High VL </option>
                       <option value="7918^YES^99DCT" id="other_specify_type">Other Specify</option>
                    </select>
                 </fieldset>
@@ -138,7 +126,7 @@
           </div>
  
  <div class="form-group">           
-<script src="http://demo.expertphp.in/js/jquery.js"></script>
+
 
          <div class="section form-group input_fields_container">
          <label> Key Findings<span class="required">*</span>
@@ -150,23 +138,7 @@
          
 </div>        
         
-<script>    
-    $(document).ready(function() {
-    var max_fields_limit      = 10; //maximum input boxes allowed
-    var x = 1; //initlal text box count
-    $('.add_more_button').click(function(e){ //on add input button click
-        e.preventDefault();
-        if(x < max_fields_limit){ //max input box allowed
-            x++; //text box increment
-            $('.input_fields_container').append('<div><input type="text" size="30" name="key_findings[]"/><a href="#" class="remove_field" style="margin-left:10px;">remove</a></div>'); //add input box
-        }
-    });
-    
-    $('.input_fields_container').on("click",".remove_field", function(e){ //user click on remove text
-        e.preventDefault(); $(this).parent('div').remove(); x--;
-    })
-});
-</script>
+
 
 
 
@@ -180,24 +152,7 @@
          </div>
          
 </div>        
-        
-<script>    
-    $(document).ready(function() {
-    var max_fields_limit      = 10; //maximum input boxes allowed
-    var x = 1; //initlal text box count
-    $('.add_more_button1').click(function(e){ //on add input button click
-        e.preventDefault();
-        if(x < max_fields_limit){ //max input box allowed
-            x++; //text box increment
-            $('.input_fields_container1').append('<div><input type="text" size="30" name="followup_plan[]"/><a href="#" class="remove_field" style="margin-left:10px;">remove</a></div>'); //add input box
-        }
-    });
-    
-    $('.input_fields_container1').on("click",".remove_field", function(e){ //user click on remove text
-        e.preventDefault(); $(this).parent('div').remove(); x--;
-    })
-});
-</script>
+
 
             <div class="section form-group">
                 <div class="form-group ">
@@ -259,7 +214,27 @@
 
 <script type="text/javascript">
 
- $('#save_draft').click(function () {
+ 
+
+ $(document).ready(function() {
+ // Set Encounter DateTime for date of screening
+ document.setupValidationForProvider("$('#encounter\\.provider_id_select').val()", "encounter\\.provider_id");
+    document.setupValidationForLocation("$('#encounter\\.location_id').val()", "encounter\\.location_id");
+ 
+    document.setupAutoCompleteData('encounter\\.location_id');
+    document.setupAutoCompleteDataForProvider('encounter\\.provider_id_select');
+    
+    var max_fields_limit      = 10; //maximum input boxes allowed
+    var x = 1; //initlal text box count
+    $('.add_more_button').click(function(e){ //on add input button click
+        e.preventDefault();
+        if(x < max_fields_limit){ //max input box allowed
+            x++; //text box increment
+            $('.input_fields_container').append('<div><input type="text" size="30" name="key_findings[]"/><a href="#" class="remove_field" style="margin-left:10px;">remove</a></div>'); //add input box
+        }
+    });
+
+    $('#save_draft').click(function () {
             // pre process the medications
             $(this).prop('disabled', true);
             document.saveDraft(this);
@@ -272,8 +247,24 @@
             $(this).prop('disabled', false);
         });
 
- $(document).ready(function() {
- // Set Encounter DateTime for date of screening
+    var max_fields_limit      = 10; //maximum input boxes allowed
+    var x = 1; //initlal text box count
+    $('.add_more_button1').click(function(e){ //on add input button click
+        e.preventDefault();
+        if(x < max_fields_limit){ //max input box allowed
+            x++; //text box increment
+            $('.input_fields_container1').append('<div><input type="text" size="30" name="followup_plan[]"/><a href="#" class="remove_field" style="margin-left:10px;">remove</a></div>'); //add input box
+        }
+    });
+    
+    $('.input_fields_container1').on("click",".remove_field", function(e){ //user click on remove text
+        e.preventDefault(); $(this).parent('div').remove(); x--;
+    })
+    
+    $('.input_fields_container').on("click",".remove_field", function(e){ //user click on remove text
+        e.preventDefault(); $(this).parent('div').remove(); x--;
+    })
+
     var dateFormat = "dd-mm-yy ";
     var currentDate = $.datepicker.formatDate(dateFormat, new Date());
     var encounterDatetime = $('#encounter\\.encounter_datetime');
@@ -293,7 +284,7 @@
     $('#patient_type_specify').hide()
     $('#patient_case_management').click(function() {
     console.log("THE SELECTED  "+$(this).val())
-    if($(this).val() == "0000^YES^99DCT"){
+    if($(this).val() == "7918^YES^99DCT"){
     $('#patient_type_specify').show()
     console.log("THE SELECTED show")
     } else{
