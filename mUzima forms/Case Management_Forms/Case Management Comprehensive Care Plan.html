@@ -41,90 +41,58 @@
         <div class="section">
             <h4>DEMOGRAPHICS</h4>
             <div class="form-group">
-                <input class="form-control" id="patient.uuid" name="patient.uuid" type="hidden" readonly="readonly" />
+                <input class="form-control" id="patient.uuid" name="patient.uuid" type="hidden" readonly="readonly"/>
             </div>
             <div class="form-group">
                 <label for="patient.family_name">Family Name <span class="required">*</span> </label>
-                <input class="form-control" id="patient.family_name" name="patient.family_name" type="text"
-                    required="required" readonly="readonly" />
+                <input class="form-control" id="patient.family_name" name="patient.family_name" type="text" required="required" readonly="readonly"/>
             </div>
             <div class="form-group">
                 <label for="patient.given_name">Given Name <span class="required">*</span></label>
-                <input class="form-control" id="patient.given_name" name="patient.given_name" type="text"
-                    required="required" readonly="readonly" />
+                <input class="form-control" id="patient.given_name" name="patient.given_name" type="text" required="required" readonly="readonly"/>
             </div>
             <div class="form-group">
                 <label for="patient.middle_name">Middle Name </label>
-                <input class="form-control" id="patient.middle_name" name="patient.middle_name" type="text"
-                    readonly="readonly" />
+                <input class="form-control" id="patient.middle_name" name="patient.middle_name" type="text" readonly="readonly"/>
             </div>
-            <div class="form-group">
-                <label for="patient.mothers_name">Mother's Name </label>
-                <input class="form-control" id="patient.mothers_name" name="patient.mothers_name" type="text"
-                    readonly="readonly" />
-            </div>
+            
             <div class="form-group">
                 <label for="patient.sex">Sex <span class="required">*</span></label>
-                <select class="form-control" id="patient.sex" name="patient.sex" required="required"
-                    readonly="readonly">
+                <select class="form-control" id="patient.sex" name="patient.sex" required="required"readonly="readonly">
                     <option value="">...</option>
                     <option value="M">Male</option>
                     <option value="F">Female</option>
                 </select>
             </div>
-            <div class="form-group">
-                <label for="tmp.birthdate_type">Record Date of Birth By... <span class="required">*</span></label>
-                <select class="form-control" name="tmp.birthdate_type" id="tmp.birthdate_type" required="required"
-                    readonly="readonly">
-                    <option value="">...</option>
-                    <option value="birthdate">Birth-date</option>
-                    <option value="age">Age</option>
-                </select>
-            </div>
+            
             <div class="form-group show_birthdate">
                 <label for="patient.birth_date">Select Birthdate <span class="required">*</span></label>
-                <input class="form-control birth_date_picker nonFutureDate past-date" id="patient.birth_date"
-                    name="patient.birth_date" type="text" required="required" readonly="readonly" />
+                <input class="form-control birth_date_picker nonFutureDate past-date" id="patient.birth_date" name="patient.birth_date" type="text" required="required" readonly="readonly"/>
             </div>
-            <div class="form-group show_birthdate">
-                <label for="patient.birthdate_estimated">Is this birthdate an estimate? <span
-                        class="required">*</span></label>
-                <select class="form-control" id="patient.birthdate_estimated" name="patient.birthdate_estimated"
-                    required="required" readonly="readonly">
-                    <option>...</option>
-                    <option value="true">Yes</option>
-                    <option value="false">No</option>
-                </select>
-            </div>
-            <div class="form-group show_age">
-                <label for="tmp.age_in_years">How old are you in Years <span class="required">*</span></label>
-                <input class="form-control" id="tmp.age_in_years" name="tmp.age_in_years" type="number"
-                    required="required" readonly="readonly" />
-            </div>
+            
+            
         </div>
         <!-- End Names -->
 
         <div class="section form-group">
             <div class="form-group">
-                <h5><strong>Type of patient on case management</strong><span class="required">*</span></h5>
-                <fieldset name="8347^cmanagement?^99DCT">
-                    <select name="patient_type" id="patient_case_management">
-                        <option value="8314^NPPM^99DCT">New Positive Pregnant Mother</option>
-                        <option value="8316^NPBFM^99DCT">New Positive Breast Feeding Mother</option>
-                        <option value="8317^PBFA^99DCT">Pregnant Adolescent</option>
-                        <option value="8319^PBFA^99DCT">Breast Feeding Adolescent</option>
-                        <option value="8320^HVLPBFM^99DCT">High VL pregnant or Breast Feeding Mother</option>
-                        <option value="8323^HVLPF^99DCT">High VL Peadiatric </option>
-                        <option value="8343^HVLADF^99DCT">High VL Adults </option>
-                        <option value="7918^YES^99DCT" id="other_specify_type">Other Specify</option>
-                    </select>
-                </fieldset>
+              <h5><strong>Type of patient on case management</strong><span class="required">*</span></h5>
+              <fieldset name="8471^cmanagement?^99DCT">
+               <select name="patient_type" id="patient_case_management">
+                  <option value="8314^NPPM^99DCT">New Positive Pregnant Mother</option>
+                  <option value="8316^NPBFM^99DCT">New Positive Breast Feeding Mother</option>
+                  <option value="8317^PBFA^99DCT">Pregnant Adolescent</option>
+                  <option value="8319^PBFA^99DCT">Breast Feeding Adolescent</option>
+                  <option value="8469^HVLPBFM^99DCT">High VL </option>
+                  <option value="8470^YES^99DCT" id="other_specify_type">Other Specify</option>
+               </select>
+            </fieldset>
             </div>
             <div id="patient_type_specify">
-                <label for="review_findings">Specify</label>
-                <input class="form-control" name="specify_specify" type="textfield">
-            </div>
-        </div>
+              <label for="review_findings">Specify</label>
+              <input class="form-control" name="specify_specify" data-concept="7918^OTHER_SPECIFY^99DCT" type="textfield">
+          </div>
+      </div>
 
         <div class="section form-group">
             <div class="form-group">
