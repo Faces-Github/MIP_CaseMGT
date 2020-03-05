@@ -13,8 +13,8 @@
     <title>MIP HEI FOLLOW UP FORM</title>
     <style>
         h4 {
-            text-align: center;
-        }
+        text-align: center;
+    }
     </style>
 </head>
 
@@ -24,90 +24,88 @@
         <font color="blue">
             <h2 class="text-center">MIP HEI FOLLOW UP FORM</h2>
         </font>
-        <!-- Start Names -->
-        <div class="section">
-            <h4>DEMOGRAPHICS</h4>
-            <div class="form-group">
-                <input class="form-control" id="patient.uuid" name="patient.uuid" type="hidden" readonly="readonly" />
-            </div>
-            <div class="form-group">
-                <label for="patient.family_name">Family Name <span class="required">*</span> </label>
-                <input class="form-control" id="patient.family_name" name="patient.family_name" type="text"
-                    required="required" readonly="readonly" />
-            </div>
-            <div class="form-group">
-                <label for="patient.given_name">Given Name <span class="required">*</span></label>
-                <input class="form-control" id="patient.given_name" name="patient.given_name" type="text"
-                    required="required" readonly="readonly" />
-            </div>
-            <div class="form-group">
-                <label for="patient.middle_name">Middle Name </label>
-                <input class="form-control" id="patient.middle_name" name="patient.middle_name" type="text"
-                    readonly="readonly" />
-            </div>
+                <!-- Start Names -->
+                <div class="section">
+                    <h4>DEMOGRAPHICS</h4>
+                    <div class="form-group">
+                        <input class="form-control" id="patient.uuid" name="patient.uuid" type="hidden" readonly="readonly"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="patient.family_name">Family Name <span class="required">*</span> </label>
+                        <input class="form-control" id="patient.family_name" name="patient.family_name" type="text" required="required" readonly="readonly"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="patient.given_name">Given Name <span class="required">*</span></label>
+                        <input class="form-control" id="patient.given_name" name="patient.given_name" type="text" required="required" readonly="readonly"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="patient.middle_name">Middle Name </label>
+                        <input class="form-control" id="patient.middle_name" name="patient.middle_name" type="text" readonly="readonly"/>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="patient.sex">Sex <span class="required">*</span></label>
+                        <select class="form-control" id="patient.sex" name="patient.sex" required="required"readonly="readonly">
+                            <option value="">...</option>
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group show_birthdate">
+                        <label for="patient.birth_date">Select Birthdate <span class="required">*</span></label>
+                        <input class="form-control birth_date_picker nonFutureDate past-date" id="patient.birth_date" name="patient.birth_date" type="text" required="required" readonly="readonly"/>
+                    </div>
+                    
+                    
+                </div>
+                <!-- End Names -->
 
-            <div class="form-group">
-                <label for="patient.sex">Sex <span class="required">*</span></label>
-                <select class="form-control" id="patient.sex" name="patient.sex" required="required"
-                    readonly="readonly">
-                    <option value="">...</option>
-                    <option value="M">Male</option>
-                    <option value="F">Female</option>
-                </select>
-            </div>
-
-            <div class="form-group show_birthdate">
-                <label for="patient.birth_date">Select Birthdate <span class="required">*</span></label>
-                <input class="form-control birth_date_picker nonFutureDate past-date" id="patient.birth_date"
-                    name="patient.birth_date" type="text" required="required" readonly="readonly" />
-            </div>
-
-
-        </div>
-        <!-- End Names -->
-
-        <div class="section form-group">
-            <div class="form-group">
+            <div class="section form-group">
+            <div class="form-group" >
                 <label> Does the child qualify for PCR today? <span class="required">*</span></label>
                 <fieldset name="8385^PCRELIG^99DCT">
                     <div class="form-group">
-                        <label class="font-normal"> <input class="patient_consent" name="pcr_eligibility" id="yeselig"
-                                type="radio" data-concept="8385^PCRELIG^99DCT" value="1065^Yes^99DCT">
+                        <label class="font-normal"> <input class="patient_consent"
+                            name="pcr_eligibility" id="yeselig" type="radio"
+                            data-concept="8385^PCRELIG^99DCT" value="1065^Yes^99DCT">
                             Yes
                         </label>
                     </div>
                     <div class="form-group">
-                        <label class="font-normal"> <input class="patient_consent" name="pcr_eligibility" id="noelig"
-                                type="radio" data-concept="8385^PCRELIG^99DCT" value="1066^No^99DCT">
+                        <label class="font-normal"> <input class="patient_consent"
+                            name="pcr_eligibility" id="noelig" type="radio"
+                            data-concept="8385^PCRELIG^99DCT" value="1066^No^99DCT">
                             No
                         </label>
                     </div>
             </div>
-        </div>
-        <div class="section">
+            </div>
+            <div class="section">
             <div class="form-group">
                 <h5><strong>Type of PCR</strong><span class="required"></span></h5>
                 <fieldset name="8373^Positive contact Linked^99DCT">
                     <div class="form-group">
                         <label class="font-normal">
                             <input class="pcr_type" name="pcr" id="first_contact" type="radio"
-                                data-concept="8373^P^99DCT" value="8372^Linked Instantly^99DCT">
+                                   data-concept="8373^P^99DCT"
+                                   value="8372^Linked Instantly^99DCT">
                             Initial or First Contact
                         </label>
                     </div>
                     <div class="form-group">
                         <label class="font-normal">
                             <input class="pcr_type" name="pcr" id="6month_pcr" type="radio"
-                                data-concept="8373^Positive contact Linked^99DCT"
-                                value="8370^Contacted and linked^99DCT">
-                            6 month PCR
+                                   data-concept="8373^Positive contact Linked^99DCT"
+                                   value="8370^Contacted and linked^99DCT">
+                            6  month PCR
                         </label>
                     </div>
                     <div class="form-group">
                         <label class="font-normal">
                             <input class="pcr_type" name="pcr" id="12month_pcr" type="radio"
-                                data-concept="8373^Positive contact Linked^99DCT"
-                                value="8371^Contacted but not linked^99DCT">
+                                   data-concept="8373^Positive contact Linked^99DCT"
+                                   value="8371^Contacted but not linked^99DCT">
                             12 month PCR
                         </label>
                     </div>
@@ -115,337 +113,355 @@
             </div>
         </div>
 
-        <div class="section form-group">
-            <div class="form-group">
+            <div class="section form-group">
+            <div class="form-group" >
                 <label> Did you recieve PCR result? <span class="required">*</span></label>
                 <fieldset name="8386^PCRELIG^99DCT">
                     <div class="form-group">
-                        <label class="font-normal"> <input class="result_rcv" name="result_rcv" id="yes_rslt"
-                                type="radio" data-concept="8386^PCRELIG^99DCT" value="1065^Yes^99DCT">
+                        <label class="font-normal"> <input class="result_rcv"
+                            name="result_rcv" id="yes_rslt" type="radio"
+                            data-concept="8386^PCRELIG^99DCT" value="1065^Yes^99DCT">
                             Yes
                         </label>
                     </div>
                     <div class="form-group">
-                        <label class="font-normal"> <input class="result_rcv" name="result_rcv" id="no_rslt"
-                                type="radio" data-concept="8386^PCRELIG^99DCT" value="1066^No^99DCT">
+                        <label class="font-normal"> <input class="result_rcv"
+                            name="result_rcv" id="no_rslt" type="radio"
+                            data-concept="8386^PCRELIG^99DCT" value="1066^No^99DCT">
                             No
                         </label>
                     </div>
             </div>
-        </div>
-
-        <div class="section form-group">
-            <div class="form-group">
-                <label> PCR result <span class="required">*</span></label>
-                <fieldset name="8387^PCR RESULT^99DCT">
+            </div>
+			
+			<div class="section form-group">
+			<div class="form-group" >
+				<label> PCR result <span class="required">*</span></label>
+				<fieldset name="8387^PCR RESULT^99DCT">
+					<div class="form-group">
+						<label class="font-normal"> <input class="patient_result"
+							name="pcr_result" id="pcrpostive" type="radio"
+							data-concept="8387^PCR RESULT^99DCT" value="703^POSITIVE^99DCT">
+							Postive
+						</label>
+					</div>
+        			<div class="form-group">
+        				<label class="font-normal"> <input class="patient_result"
+        					name="pcr_result" id="pcrnegative" type="radio"
+        					data-concept="8387^PCR RESULT^99DCT" value="664^NEGATIVE^99DCT">
+        					Negative
+        				</label>
+        			</div>
                     <div class="form-group">
-                        <label class="font-normal"> <input class="patient_result" name="pcr_result" id="pcrpostive"
-                                type="radio" data-concept="8387^PCR RESULT^99DCT" value="703^POSITIVE^99DCT">
-                            Postive
-                        </label>
-                    </div>
-                    <div class="form-group">
-                        <label class="font-normal"> <input class="patient_result" name="pcr_result" id="pcrnegative"
-                                type="radio" data-concept="8387^PCR RESULT^99DCT" value="664^NEGATIVE^99DCT">
-                            Negative
-                        </label>
-                    </div>
-                    <div class="form-group">
-                        <label class="font-normal"> <input class="patient_result" name="pcr_result" id="pcrpending"
-                                type="radio" data-concept="8387^PCR RESULT^99DCT" value="7190^Pending^99DCT">
+                        <label class="font-normal"> <input class="patient_result"
+                            name="pcr_result" id="pcrpending" type="radio"
+                            data-concept="8387^PCR RESULT^99DCT" value="7190^Pending^99DCT">
                             Pending
                         </label>
                     </div>
                     <div class="form-group">
-                        <label class="font-normal"> <input class="patient_result" name="pcr_result" id="pcrreject"
-                                type="radio" data-concept="8387^INFORMED CONSENT^99DCT" value="8389^Rejected^99DCT">
+                        <label class="font-normal"> <input class="patient_result"
+                            name="pcr_result" id="pcrreject" type="radio"
+                            data-concept="8387^INFORMED CONSENT^99DCT" value="8389^Rejected^99DCT">
                             Rejected
                         </label>
                     </div>
-            </div>
+			</div>
+			</div>
+			
+			
+            <div class="form-group ">
+                <label for="ART_start_datetime ">Date of ART initiation<span class="required ">*</span></label>
+                <input class="form-control nonFutureDate past-date datepicker" name="Art_initiation_datetime" type="text" data-concept="8375^ART Art_initiation_datetime^99DCT" required="required">
         </div>
-
-        <div class="section form-group">
-        <div class="form-group ">
-            <label for="ART_start_datetime ">Date of ART initiation<span class="required ">*</span></label>
-            <input class="form-control nonFutureDate past-date datepicker" name="Art_initiation_datetime" type="text"
-                data-concept="8375^ART Art_initiation_datetime^99DCT" required="required">
-        </div>
-
+        
         <div class="form-group">
-            <label for="infant_ccc">Infant's CCC number<span class="required">*</span> </label>
-            <input class="form-control" id="infant_ccc" name="infant_ccc" type="text"
-                data-concept="8374^INFANT CCC^99DCT" required="required">
+                <label for="infant_ccc">Infant's CCC number<span class="required">*</span> </label>
+                <input class="form-control" id="infant_ccc" name="infant_ccc" type="text" data-concept="8374^INFANT CCC^99DCT" required="required">
         </div>
-
+        
         <div class="form-group ">
-            <label for="confirm_PCR_date">Date of Confirmatory PCR(For Positive PCR) results<span
-                    class="required"></span> </label>
-            <input class="form-control nonFutureDate past-date datepicker" id="confirmatory_date"
-                name="confirmatory_date" type="text" data-concept="8377^CONFIRMATORY PCR^99DCT" required="required">
+                <label for="confirm_PCR_date">Date of Confirmatory PCR(For Positive PCR) results<span class="required"></span> </label>
+                <input class="form-control nonFutureDate past-date datepicker" id="confirmatory_date" name="confirmatory_date" type="text" data-concept="8377^CONFIRMATORY PCR^99DCT" required="required">
         </div>
         <div class="form-group ">
-            <label for="baselineVL_date">Date of infant Baseline VL(For Positive PCR) results</label>
-            <input class="form-control nonFutureDate past-date datepicker" id="baseline_VL_date" name="baselineVL_date"
-                type="text" data-concept="8378^BASELIE VL DATE^99DCT" required="required">
-        </div>
-        </div>
-
-        </fieldset>
+                <label for="baselineVL_date">Date of infant Baseline VL(For Positive PCR) results</label>
+                <input class="form-control nonFutureDate past-date datepicker" id="baseline_VL_date" name="baselineVL_date" type="text" data-concept="8378^BASELIE VL DATE^99DCT" required="required">
         </div>
     </div>
 
+</fieldset>
+</div>
+				
 
-        <div class="section form-group">
-            <div class="form-group">
-                <h5><strong>Is the child given NVP today</strong><span class="required">*</span></h5>
-                <fieldset name="8390^NVPgiven^99DCT">
-                    <div class="form-group">
-                        <label class="font-normal">
-                            <input name="nvp" id="nvp_yes" type="radio" data-concept="8390^nvp^99DCT"
-                                value="1065^YES^99DCT">Yes
-                        </label>
-                    </div>
-                    <div class="form-group">
-                        <label class="font-normal">
-                            <input name="nvp" id="nvp_no" type="radio" data-concept="8390^nvp^99DCT"
-                                value="1066^NO^99DCT"> No
-                        </label>
-                    </div>
-
-                </fieldset>
+                
+			<div class="section form-group">
+                <div class="form-group">
+                    <h5><strong>Is the child given NVP today</strong><span class="required">*</span></h5>
+                    <fieldset name="8390^NVPgiven^99DCT">
+                        <div class="form-group">
+                            <label class="font-normal">
+                                <input name="nvp" id="nvp_yes" type="radio" data-concept="8390^nvp^99DCT"
+                                    value="1065^YES^99DCT">Yes
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-normal">
+                                <input name="nvp" id="nvp_no" type="radio" data-concept="8390^nvp^99DCT"
+                                    value="1066^NO^99DCT"> No
+                            </label>
+                        </div>
+                        
+                    </fieldset>
+                </div>
+				
+				<div class="form-group">
+                    <h5><strong>Is the child given AZT today</strong><span class="required">*</span></h5>
+                    <fieldset name="8391^AZTgiven^99DCT">
+                        <div class="form-group">
+                            <label class="font-normal">
+                                <input name="azt" id="azt_yes" type="radio" data-concept="8391^azt^99DCT"
+                                    value="1065^YES^99DCT">Yes
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-normal">
+                                <input name="azt" id="azt_no" type="radio" data-concept="8391^azt^99DCT"
+                                    value="1066^NO^99DCT"> No
+                            </label>
+                        </div>
+                        
+                    </fieldset>
+                </div>
+				
+				
+				<div class="form-group">
+                    <h5><strong>Is the child given CEPTRIN today</strong><span class="required">*</span></h5>
+                    <fieldset name="8392^Disability?^99DCT">
+                        <div class="form-group">
+                            <label class="font-normal">
+                                <input name="disability" id="fpstarted_yes" type="radio" data-concept="8392^Disability?^99DCT"
+                                    value="1065^YES^99DCT">Yes
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-normal">
+                                <input name="disability" id="fpstarted_no" type="radio" data-concept="8392^Disability?^99DCT"
+                                    value="1066^NO^99DCT"> No
+                            </label>
+                        </div>
+                        
+                    </fieldset>
+                </div>
             </div>
 
-            <div class="form-group">
-                <h5><strong>Is the child given AZT today</strong><span class="required">*</span></h5>
-                <fieldset name="8391^AZTgiven^99DCT">
-                    <div class="form-group">
-                        <label class="font-normal">
-                            <input name="azt" id="azt_yes" type="radio" data-concept="8391^azt^99DCT"
-                                value="1065^YES^99DCT">Yes
-                        </label>
-                    </div>
-                    <div class="form-group">
-                        <label class="font-normal">
-                            <input name="azt" id="azt_no" type="radio" data-concept="8391^azt^99DCT"
-                                value="1066^NO^99DCT"> No
-                        </label>
-                    </div>
-
-                </fieldset>
+				<div class="section form-group">
+				<div class="form-group">
+                    <h5><strong>Does the child have any side effects to the drugs</strong><span class="required">*</span></h5>
+                    <fieldset name="8394^DrugSEffects^99DCT">
+                        <div class="form-group">
+                            <label class="font-normal">
+                                <input name="se" id="sideeffects_yes" type="radio" data-concept="8394^se^99DCT"
+                                    value="1065^YES^99DCT">Yes
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-normal">
+                                <input name="se" id="sideeffects_no" type="radio" data-concept="8394^se^99DCT"
+                                    value="1066^NO^99DCT"> No
+                            </label>
+                        </div>
+                        
+                    </fieldset>
+                </div>
+				
+				<div class="form-group" id="sideeffect_div">
+                <label for="patient.mothers_name">Specify the drug which causes the side effect and describe the side effect </label>
+                <input class="form-control" id="patient.mothers_name" name="patient.mothers_name"  data-concept="8396^se^99DCT" type="text"/>
             </div>
-
-
+				</div>
+				
+				
+               
+                <div class="section" id="feeding" style="display: none">
+                    <div class="form-group">
+                        <h5><strong>Feeding Options</strong><span class="required"></span></h5>
+                        <fieldset name="8383^FEEDING OPTIONS^99DCT">
+                            <div class="form-group">
+                                <label class="font-normal">
+                                    <input class="yesSelect" name="status" id="status_successful" type="radio"
+                                           data-concept="8383^FEEDING OPTIONS^99DCT"
+                                           value="8382^EBF^99DCT">
+                                    Exclussive Breast Feeding
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="font-normal">
+                                    <input class="yesSelect" name="status" id="status_successful" type="radio"
+                                           data-concept="8383^FEEDING OPTIONS^99DCT"
+                                           value="8381^ERF^99DCT">
+                                    Exclussive Replacement Feeding
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="font-normal">
+                                    <input class="yesSelect" name="status" id="status_not_successful" type="radio"
+                                           data-concept="8383^FEEDING OPTIONS^99DCT"
+                                           value="6046^MF^99DCT">
+                                    Mixed Feeding
+                                </label>
+                            </div>
+                             <div class="form-group">
+                                <label class="font-normal">
+                                    <input class="yesSelect" name="status" id="status_successful" type="radio"
+                                           data-concept="8383^FEEDING OPTIONS^99DCT"
+                                           value="8380^BF^99DCT">
+                                    Breast Feeding
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="font-normal">
+                                    <input class="yesSelect" name="status" id="status_not_successful" type="radio"
+                                           data-concept="8383^FEEDING OPTIONS^99DCT"
+                                           value="8379^NF^99DCT">
+                                    Not Breast Feeding
+                                </label>
+                            </div>
+                        </fieldset>
+                    
+                </div>
+				</div>
+			
+			
+			
+			
+			<div class="section form-group">
             <div class="form-group">
-                <h5><strong>Is the child given CEPTRIN today</strong><span class="required">*</span></h5>
-                <fieldset name="8392^Disability?^99DCT">
-                    <div class="form-group">
-                        <label class="font-normal">
-                            <input name="disability" id="fpstarted_yes" type="radio"
-                                data-concept="8392^Disability?^99DCT" value="1065^YES^99DCT">Yes
-                        </label>
-                    </div>
-                    <div class="form-group">
-                        <label class="font-normal">
-                            <input name="disability" id="fpstarted_no" type="radio"
-                                data-concept="8392^Disability?^99DCT" value="1066^NO^99DCT"> No
-                        </label>
-                    </div>
-
-                </fieldset>
-            </div>
-        </div>
-
-        <div class="section form-group">
-            <div class="form-group">
-                <h5><strong>Does the child have any side effects to the drugs</strong><span class="required">*</span>
-                </h5>
-                <fieldset name="8394^DrugSEffects^99DCT">
-                    <div class="form-group">
-                        <label class="font-normal">
-                            <input name="se" id="sideeffects_yes" type="radio" data-concept="8394^se^99DCT"
-                                value="1065^YES^99DCT">Yes
-                        </label>
-                    </div>
-                    <div class="form-group">
-                        <label class="font-normal">
-                            <input name="se" id="sideeffects_no" type="radio" data-concept="8394^se^99DCT"
-                                value="1066^NO^99DCT"> No
-                        </label>
-                    </div>
-
-                </fieldset>
-            </div>
-
-            <div class="form-group" id="sideeffect_div">
-                <label for="patient.mothers_name">Specify the drug which causes the side effect and describe the side
-                    effect </label>
-                <input class="form-control" id="patient.mothers_name" name="patient.mothers_name"
-                    data-concept="8396^se^99DCT" type="text" />
-            </div>
-        </div>
-
-
-
-        <div class="section" id="feeding" style="display: none">
-            <div class="form-group">
-                <h5><strong>Feeding Options</strong><span class="required"></span></h5>
-                <fieldset name="8383^FEEDING OPTIONS^99DCT">
-                    <div class="form-group">
-                        <label class="font-normal">
-                            <input class="yesSelect" name="status" id="status_successful" type="radio"
-                                data-concept="8383^FEEDING OPTIONS^99DCT" value="8382^EBF^99DCT">
-                            Exclussive Breast Feeding
-                        </label>
-                    </div>
-                    <div class="form-group">
-                        <label class="font-normal">
-                            <input class="yesSelect" name="status" id="status_successful" type="radio"
-                                data-concept="8383^FEEDING OPTIONS^99DCT" value="8381^ERF^99DCT">
-                            Exclussive Replacement Feeding
-                        </label>
-                    </div>
-                    <div class="form-group">
-                        <label class="font-normal">
-                            <input class="yesSelect" name="status" id="status_not_successful" type="radio"
-                                data-concept="8383^FEEDING OPTIONS^99DCT" value="6046^MF^99DCT">
-                            Mixed Feeding
-                        </label>
-                    </div>
-                    <div class="form-group">
-                        <label class="font-normal">
-                            <input class="yesSelect" name="status" id="status_successful" type="radio"
-                                data-concept="8383^FEEDING OPTIONS^99DCT" value="8380^BF^99DCT">
-                            Breast Feeding
-                        </label>
-                    </div>
-                    <div class="form-group">
-                        <label class="font-normal">
-                            <input class="yesSelect" name="status" id="status_not_successful" type="radio"
-                                data-concept="8383^FEEDING OPTIONS^99DCT" value="8379^NF^99DCT">
-                            Not Breast Feeding
-                        </label>
-                    </div>
-                </fieldset>
-
-            </div>
-        </div>
-
-
-
-
-        <div class="section form-group">
-            <div class="form-group">
-                <label> Which immunization has the child received <span class="required">*</span>
+                <label> Which immunization has the child received <span
+                    class="required">*</span>
                 </label>
                 <div class="form-group">
-                    <label class="font-normal"> <input name="Psychosocial" id="injury_illness" type="checkbox"
-                            data-concept="8398^illness^99DCT" value="7983^stressors^99DCT" />
+                    <label class="font-normal"> <input name="Psychosocial"
+                        id="injury_illness" type="checkbox"
+                        data-concept="8398^illness^99DCT" value="7983^stressors^99DCT" />
                         BCG
                     </label>
                 </div>
                 <div class="form-group">
-                    <label class="font-normal"> <input name="Psychosocial" id="children" type="checkbox"
-                            data-concept="8398^illness^99DCT" value="6870^stressors^99DCT" /> IPV/OPV 1
+                    <label class="font-normal"> <input name="Psychosocial"
+                        id="children" type="checkbox"
+                        data-concept="8398^illness^99DCT" value="6870^stressors^99DCT" /> IPV/OPV 1
                     </label>
                 </div>
                 <div class="form-group">
-                    <label class="font-normal"> <input name="Psychosocial" id="partner" type="checkbox"
-                            data-concept="8398^illness^99DCT" value="6871^stressors^99DCT" />
+                    <label class="font-normal"> <input name="Psychosocial"
+                        id="partner" type="checkbox"
+                        data-concept="8398^illness^99DCT" value="6871^stressors^99DCT" />
                         IPV/OPV
                     </label>
                 </div>
                 <div class="form-group">
-                    <label class="font-normal"> <input name="Psychosocial" id="financial" type="checkbox"
-                            data-concept="8398^illness^99DCT" value="6939^stressors^99DCT" />
+                    <label class="font-normal"> <input name="Psychosocial"
+                        id="financial" type="checkbox"
+                        data-concept="8398^illness^99DCT" value="6939^stressors^99DCT" />
                         Penta 2
                     </label>
                 </div>
                 <div class="form-group">
-                    <label class="font-normal"> <input name="Psychosocial" id="death" type="checkbox"
-                            data-concept="8398^illness^99DCT" value="6873^stressors^99DCT" />
+                    <label class="font-normal"> <input name="Psychosocial"
+                        id="death" type="checkbox"
+                        data-concept="8398^illness^99DCT" value="6873^stressors^99DCT" />
                         PCV 1
                     </label>
                 </div>
                 <div class="form-group">
-                    <label class="font-normal"> <input name="Psychosocial" id="work_school" type="checkbox"
-                            data-concept="8398^illness^99DCT" value="6931^stressors^99DCT" />
+                    <label class="font-normal"> <input name="Psychosocial"
+                        id="work_school" type="checkbox"
+                        data-concept="8398^illness^99DCT" value="6931^stressors^99DCT" />
                         PCV 3
                     </label>
                 </div>
                 <div class="form-group">
-                    <label class="font-normal"> <input name="Psychosocial" id="housing" type="checkbox"
-                            data-concept="8398^illness^99DCT" value="6933^stressors^99DCT" />
+                    <label class="font-normal"> <input name="Psychosocial"
+                        id="housing" type="checkbox"
+                        data-concept="8398^illness^99DCT" value="6933^stressors^99DCT" />
                         Rota 2
                     </label>
                 </div>
                 <div class="form-group">
-                    <label class="font-normal"> <input name="Psychosocial" id="legal" type="checkbox"
-                            data-concept="8398^illness^99DCT" value="6868^stressors^99DCT" />
+                    <label class="font-normal"> <input name="Psychosocial"
+                        id="legal" type="checkbox"
+                        data-concept="8398^illness^99DCT" value="6868^stressors^99DCT" />
                         Measles 9months
                     </label>
                 </div>
                 <div class="form-group">
-                    <label class="font-normal"> <input name="Psychosocial" id="child_care" type="checkbox"
-                            data-concept="8398^illness^99DCT" value="6869^stressors^99DCT" />
+                    <label class="font-normal"> <input name="Psychosocial"
+                        id="child_care" type="checkbox"
+                        data-concept="8398^illness^99DCT" value="6869^stressors^99DCT" />
                         IPV/OPV BIRTH
                     </label>
                 </div>
-
+                
                 <div class="form-group">
-                    <label class="font-normal"> <input name="Psychosocial" id="OtherSpecify" type="checkbox"
-                            data-concept="8398^illness^99DCT" value="6937^stressors^99DCT" />
+                    <label class="font-normal"> <input name="Psychosocial"
+                        id="OtherSpecify" type="checkbox"
+                        data-concept="8398^illness^99DCT" value="6937^stressors^99DCT" />
                         Penta 3
                     </label>
                 </div>
-
-                <div class="form-group">
-                    <label class="font-normal"> <input name="Psychosocial" id="OtherSpecify" type="checkbox"
-                            data-concept="8398^illness^99DCT" value="6930^stressors^99DCT" />
+				
+				 <div class="form-group">
+                    <label class="font-normal"> <input name="Psychosocial"
+                        id="OtherSpecify" type="checkbox"
+                        data-concept="8398^illness^99DCT" value="6930^stressors^99DCT" />
                         PCV 2
                     </label>
                 </div>
-
-                <div class="form-group">
-                    <label class="font-normal"> <input name="Psychosocial" id="OtherSpecify" type="checkbox"
-                            data-concept="8398^illness^99DCT" value="6932^stressors^99DCT" />
+				
+				 <div class="form-group">
+                    <label class="font-normal"> <input name="Psychosocial"
+                        id="OtherSpecify" type="checkbox"
+                        data-concept="8398^illness^99DCT" value="6932^stressors^99DCT" />
                         Rota 1
                     </label>
                 </div>
-
-                <div class="form-group">
-                    <label class="font-normal"> <input name="Psychosocial" id="OtherSpecify" type="checkbox"
-                            data-concept="8398^illness^99DCT" value="6867^stressors^99DCT" />
+				
+				 <div class="form-group">
+                    <label class="font-normal"> <input name="Psychosocial"
+                        id="OtherSpecify" type="checkbox"
+                        data-concept="8398^illness^99DCT" value="6867^stressors^99DCT" />
                         Measles 6months
                     </label>
                 </div>
-
-                <div class="form-group">
-                    <label class="font-normal"> <input name="Psychosocial" id="OtherSpecify" type="checkbox"
-                            data-concept="8398^illness^99DCT" value="36^stressors^99DCT" />
+				
+				 <div class="form-group">
+                    <label class="font-normal"> <input name="Psychosocial"
+                        id="OtherSpecify" type="checkbox"
+                        data-concept="8398^illness^99DCT" value="36^stressors^99DCT" />
                         Measles 18months
                     </label>
                 </div>
                 <div class="form-group">
-                    <label class="font-normal"> <input name="Psychosocial" id="OtherSpecifyim" type="checkbox"
-                            data-concept="8398^Other^99DCT" value="7039^Other^99DCT" />
+                    <label class="font-normal"> <input name="Psychosocial"
+                        id="OtherSpecifyim" type="checkbox"
+                        data-concept="8398^Other^99DCT" value="7039^Other^99DCT" />
                         Other
                     </label>
 
                     <div id="specifyImmunization" style="display: none">
-                        Specify:
-                        <input type="text" id="txtNumber" />
+                     Specify:   
+                     <input type="text" id="txtNumber" />
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 
 
-        <div class="section">
+<div class="section">
             <div class="form-group">
                 <label for="encounter.location_id">Encounter Location <span class="required">*</span></label>
-                <input class="form-control valid-location-only" id="encounter.location_id" type="text"
-                    placeholder="Start typing something..." required="required" />
-                <input class="form-control" name="encounter.location_id" type="hidden" />
+                <input class="form-control valid-location-only" id="encounter.location_id" type="text" placeholder="Start typing something..." required="required"/>
+                <input class="form-control" name="encounter.location_id" type="hidden"/>
             </div>
             <div class="form-group hidden">
                 <label for="encounter.location_id_select">Encounter Location <span class="required">*</span></label>
@@ -455,9 +471,8 @@
             </div>
             <div class="form-group">
                 <label for="encounter.provider_id_select">Provider Name <span class="required">*</span></label>
-                <input class="form-control valid-provider-only" id="encounter.provider_id_select" type="text"
-                    placeholder="Start typing something..." required="required" />
-                <input class="form-control" name="encounter.provider_id_select" type="hidden" />
+                <input class="form-control valid-provider-only" id="encounter.provider_id_select" type="text" placeholder="Start typing something..." required="required"/>
+                <input class="form-control" name="encounter.provider_id_select" type="hidden"/>
             </div>
             <div class="form-group hidden">
                 <select id="select_providers">
@@ -465,21 +480,17 @@
             </div>
             <div class="form-group show_provider_id_text">
                 <label for="encounter.provider_id">Provider's System-Id <span class="required">*</span></label>
-                <input class="form-control checkDigit" id="encounter.provider_id" name="encounter.provider_id"
-                    type="text" readonly="readonly" required="required" />
+                <input class="form-control checkDigit" id="encounter.provider_id" name="encounter.provider_id" type="text" readonly="readonly" required="required"/>
             </div>
             <div class="form-group">
                 <label for="encounter.encounter_datetime">Encounter DateTime <span class="required">*</span></label>
-                <input class="form-control nonFutureDate past-date datepicker" readonly="readonly"
-                    id="encounter.encounter_datetime" name="encounter.encounter_datetime" type="text"
-                    required="required" />
+                <input class="form-control nonFutureDate past-date datepicker" readonly="readonly" id="encounter.encounter_datetime" name="encounter.encounter_datetime" type="text" required="required"/>
             </div>
             <div class="form-group">
-                <input class="form-control" id="encounter.form_uuid" name="encounter.form_uuid" type="hidden"
-                    required="required" />
+                <input class="form-control" id="encounter.form_uuid" name="encounter.form_uuid" type="hidden" required="required"/>
             </div>
-        </div>
-
+        </div>		
+                
     </form>
 </body>
 <script type="text/javascript">
@@ -495,12 +506,12 @@
                 } else {
                     $("#viral_load_div").show();
                 }
-            });
-
-        $("input[name='fp_others']:radio")
+            });  
+            
+            $("input[name='fp_others']:radio")
             .change(function () {
                 console.log('here.......');
-                $('#specify_fb_div').show();
+               $('#specify_fb_div').show();
             });
 
         var dateFormat = "dd-mm-yy";
@@ -654,55 +665,55 @@
                     $(this).closest('.section').find('.date_alert').hide();
                 }
             });*/
+			
+			
+			
+			//--------------  yes mother started on fp
+						$("input[id='fpstarted_yes']:radio ").change(function() {
+							$('#fpmethod_div').show();
+							
+							
+						});
 
+						//-----------------no mother started on fp
+						$("input[id='fpstarted_no']:radio ").change(function() {
+							$('#fpmethod_div').hide();
+							
+						});
+			
+			
+			
+			//--------------  pcr postive
+						$("input[id='pcrpostive']:radio ").change(function() {
+							$('#pcr_div').show();
+							
+							
+						});
 
+						//-----------------pcr negative
+						$("input[id='pcrnegative']:radio ").change(function() {
+							$('#pcr_div').hide();
+							
+						});
+			
+			
+			
+			//-------------- side effect yes
+						$("input[id='sideeffects_yes']:radio ").change(function() {
+							$('#sideeffect_div').show();
+							
+							
+						});
 
-        //--------------  yes mother started on fp
-        $("input[id='fpstarted_yes']:radio ").change(function () {
-            $('#fpmethod_div').show();
-
-
-        });
-
-        //-----------------no mother started on fp
-        $("input[id='fpstarted_no']:radio ").change(function () {
-            $('#fpmethod_div').hide();
-
-        });
-
-
-
-        //--------------  pcr postive
-        $("input[id='pcrpostive']:radio ").change(function () {
-            $('#pcr_div').show();
-
-
-        });
-
-        //-----------------pcr negative
-        $("input[id='pcrnegative']:radio ").change(function () {
-            $('#pcr_div').hide();
-
-        });
-
-
-
-        //-------------- side effect yes
-        $("input[id='sideeffects_yes']:radio ").change(function () {
-            $('#sideeffect_div').show();
-
-
-        });
-
-        //-----------------side effect no
-        $("input[id='sideeffects_no']:radio ").change(function () {
-            $('#sideeffect_div').hide();
-
-        });
-
-
-
-
+						//-----------------side effect no
+						$("input[id='sideeffects_no']:radio ").change(function() {
+							$('#sideeffect_div').hide();
+							
+						});
+			
+			
+			
+			
         $('.final_auto_check').change(function () {
             if ($("input:radio[name=hiv_test_one]").is(":checked")) {
                 var $test_one = $('input[name=hiv_test_one]:checked').val();
@@ -815,12 +826,12 @@
                 }
             }
         });
-
-
-
-
-
-
+		
+		
+		
+		
+		
+		
         $("input[name='hiv_test_one']:radio")
             .change(function () {
                 $("#hiv_confirmatory_test").toggle(($(this).val() == "703^POSITIVE^99DCT") || ($(this).val() == "1304^POOR SAMPLE QUALITY^99DCT"));
@@ -876,17 +887,17 @@
         });*/
 
 
-        //Other immunizations received
+       //Other immunizations received
         /*<script type="text/javascript">*/
-        $(function () {
-            $("#OtherSpecifyim").click(function () {
-                if ($(this).is(":checked")) {
-                    $("#specifyImmunization").show();
-                } else {
-                    $("#specifyImmunization").hide();
-                }
-            });
+         $(function () {
+         $("#OtherSpecifyim").click(function () {
+            if ($(this).is(":checked")) {
+                $("#specifyImmunization").show();
+            } else {
+                $("#specifyImmunization").hide();
+            }
         });
+    });
 
         $('.final_auto_check').change(function () {
             if ($("input:radio[name=hiv_test_one]").is(":checked")) {

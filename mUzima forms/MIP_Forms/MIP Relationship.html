@@ -10,7 +10,7 @@
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/additional-methods.min.js"></script>
     <script src="js/muzima.js"></script>
-    <title>MIP REGISTRATION FORM</title>
+    <title>MIP RELATIONSHIP</title>
     <style>
     h4 {
         text-align: center;
@@ -24,7 +24,7 @@
         <div id="pre_populate_data">
         </div>
         <font color="blue">
-            <h2 class="text-center">MIP REGISTRATION FORM </h2></font>
+            <h2 class="text-center">MIP RELATIONSHIP</h2></font>
         <!-- Start Names -->
         <div class="section">
             <h4>DEMOGRAPHICS</h4>
@@ -43,10 +43,7 @@
                 <label for="patient.middle_name">Middle Name </label>
                 <input class="form-control" id="patient.middle_name" name="patient.middle_name" type="text"/>
             </div>
-            <div class="form-group">
-                <label for="patient.mothers_name">Mother's Name </label>
-                <input class="form-control" id="patient.mothers_name" name="patient.mothers_name" type="text"/>
-            </div>
+            
             <div class="form-group">
                 <label for="patient.sex">Sex <span class="required">*</span></label>
                 <select class="form-control" id="patient.sex" name="patient.sex" required="required">
@@ -81,89 +78,9 @@
             </div>
         </div>
         <!-- End Names -->
-        <!-- Start Address -->
-        <div class="section group-set repeat" data-group="patient.personaddress">
-            <h4>ADDRESS</h4>
-            <div class="form-group">
-                <label for="patient.county">County </label>
-                <input class="form-control" id="countyDistrict" name="countyDistrict" type="text"/>
-            </div>
-            <div class="form-group">
-                <label for="patient.location">Location </label>
-                <input class="form-control" id="address6" name="address6" type="text"/>
-            </div>
-            <div class="form-group">
-                <label for="patient.sub_location">Sub-location </label>
-                <input class="form-control" id="address5" name="address5" type="text"/>
-            </div>
-            <div class="form-group">
-                <label for="patient.village">Village </label>
-                <input class="form-control" id="cityVillage" name="cityVillage" type="text"/>
-            </div>
-            <div class="form-group">
-                <label for="patient.landmark">Landmark </label>
-                <input class="form-control" id="patient.landmark" name="patient.landmark" type="text"/>
-            </div>
-            <div class="form-group">
-                <label class="font-normal">
-                    <input name="declined_phone" id="chk_declined_phone" type="checkbox"/> Client Declined/Doesn't Have Phone
-                </label>
-                
-                <label for="patient.phone_number">
-                    Phone Number <span class="required">*</span>
-                </label>
-                <input class="form-control phoneNumber" id="patient.phone_number" name="patient.phone_number" type="tel" required="required"/>    
-            </div>
-            <div class="form-group">
-                <label for="patient.alternate_phone_contact">Alternate Phone Number </label>
-                <input class="form-control phoneNumber" id="patient.alternate_phone_contact" name="patient.alternate_phone_contact" type="tel"/>
-            </div>
-            <div class="form-group">
-                <label for="patient.postal_address">Postal Address </label>
-                <input class="form-control" id="patient.postal_address" name="patient.postal_address" type="text"/>
-            </div>
-        </div>
-        <!-- End Address -->
-        <!-- Start Guardian Details -->
-        <div class="section">
-            <h4>GUARDIAN DETAILS</h4>
-            <div class="form-group">
-                <label for="patient.guardian_first_name">First Name </label>
-                <input class="form-control" id="patient.guardian_first_name" name="patient.guardian_first_name" type="text"/>
-            </div>
-            <div class="form-group">
-                <label for="patient.guardian_last_name">Last Name </label>
-                <input class="form-control" id="patient.guardian_last_name" name="patient.guardian_last_name" type="text"/>
-            </div>
-        </div>
-        <!-- End Guardian Details -->
-        <!-- Start Next of Kin Details -->
-        <div class="section">
-            <h4>NEXT OF KIN DETAILS</h4>
-            <div class="form-group">
-                <label class="font-normal">
-                    <input name="declined_nextofkin" id="chk_declined_nextofkin" type="checkbox"/> Declined To Answer<i></i>
-                </label>
-            </div>
-            <div id="div_nextofkin" class="form-group">
-                <div class="form-group">
-                    <label for="patient.next_of_kin_name">Next of kin name <span class="required">*</span></label>
-                    <input class="form-control" id="patient.next_of_kin_name" name="patient.next_of_kin_name" type="text"/>
-                </div>
-                <div class="form-group">
-                    <label for="patient.next_of_kin_relationship">Next of kin relationship <span class="required">*</span></label>
-                    <input class="form-control" id="patient.next_of_kin_relationship" name="patient.next_of_kin_relationship" type="text"/>
-                </div>
-                <div class="form-group">
-                    <label for="patient.next_of_kin_contact">Next of kin contact <span class="required">*</span></label>
-                    <input class="form-control" id="patient.next_of_kin_contact" name="patient.next_of_kin_contact" type="text"/>
-                </div>
-                <div class="form-group">
-                    <label for="patient.next_of_kin_name">Next of kin address <span class="required">*</span></label>
-                    <input class="form-control" id="patient.next_of_kin_address" name="patient.next_of_kin_address" type="text"/>
-                </div>
-            </div>
-        </div>
+        
+        
+        
         <!-- End Next of Kin Details -->
         <div class="section">
             <div class="form-group">

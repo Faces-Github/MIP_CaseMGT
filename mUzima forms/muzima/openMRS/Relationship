@@ -26,7 +26,7 @@
 	</style>
 
 	<span style="float:right">Paper Form ID: $paperFormId</span>
-	<h2>MIP Initial Form (v1.0)</h2>
+	<h2>MIP Create Relationship (v1)</h2>
 
 	<section headerLabel="1. Encounter Details">
 		<table class="baseline-aligned">
@@ -217,6 +217,10 @@
 			<tr>
 				<td>GUARDIAN_MIDDLENAME:</td>
 				<td><lookup class="value" expression="personAttributes.get('GUARDIAN_MIDDLENAME')"/></td>
+			</tr>
+			<tr>
+				<td>pns_index_contacts:</td>
+				<td><lookup class="value" expression="personAttributes.get('pns_index_contacts')"/></td>
 			</tr>
 		</table>
 	</section>
